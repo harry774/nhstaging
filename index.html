@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NH Home Staging & Renovations — Professional home staging, virtual staging, and interior design services in Toronto, Ontario. Transform your property and sell faster with our expert staging solutions for realtors, home sellers, AirBnB hosts, and resale properties.">
+    <meta name="keywords" content="home staging Toronto, virtual staging Toronto, home staging realtors Toronto, AirBnB staging Toronto, home renovation Toronto resale, property staging Toronto, interior design Toronto, home staging for sale, real estate staging GTA, home stager Toronto, condo staging Toronto, house staging Toronto Ontario">
+    <meta name="author" content="NH Staging & Renovations">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="NH Home Staging & Renovations | Toronto">
+    <meta property="og:description" content="Professional home staging and virtual staging services in Toronto. Sell faster, sell higher.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    <title>NH Home Staging & Renovations | Toronto, Ontario</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Josefin Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#0A0A0A',
+                        charcoal: '#1C1C1C',
+                        slate: '#3A3A3A',
+                        stone: '#6B6B6B',
+                        silver: '#ABABAB',
+                        linen: '#F7F5F2',
+                        'warm-white': '#FAFAF8',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: 'Josefin Sans', sans-serif; background: #FAFAF8; color: #0A0A0A; overflow-x: hidden; }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: #F7F5F2; }
+        ::-webkit-scrollbar-thumb { background: #0A0A0A; }
+
+        /* ── Reveal animations ── */
+        .reveal        { opacity: 0; transform: translateY(36px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+        .reveal-left   { opacity: 0; transform: translateX(-40px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+        .reveal-right  { opacity: 0; transform: translateX(40px);  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+        .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+
+        .d1 { transition-delay: .08s; }
+        .d2 { transition-delay: .16s; }
+        .d3 { transition-delay: .24s; }
+        .d4 { transition-delay: .32s; }
+
+        /* ── Respect prefers-reduced-motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+
+        /* ── Navbar ── */
+        #navbar { transition: background .4s ease, box-shadow .4s ease, padding .4s ease; }
+        #navbar.scrolled { background: rgba(10,10,10,.96) !important; backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(255,255,255,.06); padding-top: 14px; padding-bottom: 14px; }
+
+        /* ── Hero ── */
+        .hero-grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        @keyframes heroLine { 0%,100% { opacity:.04; } 50% { opacity:.12; } }
+        .hero-line { animation: heroLine 6s ease-in-out infinite; }
+        .hero-line-2 { animation: heroLine 6s ease-in-out infinite 2s; }
+
+        /* ── Typography helpers ── */
+        .label { font-family: 'Josefin Sans', sans-serif; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: #6B6B6B; }
+        .label-light { color: rgba(255,255,255,.4); }
+        .divider { width: 36px; height: 1px; background: currentColor; opacity: .25; }
+
+        /* ── Link underline ── */
+        .ul-link { position: relative; }
+        .ul-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: currentColor; transition: width .28s ease; }
+        .ul-link:hover::after { width: 100%; }
+
+        /* ── Buttons ── */
+        .btn-dark { background: #0A0A0A; color: #fff; transition: background .2s, transform .2s; }
+        .btn-dark:hover { background: #333; transform: translateY(-1px); }
+        .btn-outline-dark { border: 1px solid #0A0A0A; color: #0A0A0A; transition: background .2s, color .2s; }
+        .btn-outline-dark:hover { background: #0A0A0A; color: #fff; }
+        .btn-outline-light { border: 1px solid rgba(255,255,255,.35); color: #fff; transition: background .2s, color .2s; }
+        .btn-outline-light:hover { background: #fff; color: #0A0A0A; }
+
+        /* ── Cards ── */
+        .service-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.1); }
+        .pricing-card { transition: transform .3s ease, border-color .25s; }
+        .pricing-card:hover { transform: translateY(-4px); border-color: #0A0A0A; }
+        .blog-card { transition: transform .3s ease; }
+        .blog-card:hover { transform: translateY(-5px); }
+        .blog-card .blog-thumb { transition: transform .55s ease; overflow: hidden; }
+        .blog-card:hover .blog-thumb img, .blog-card:hover .blog-thumb .thumb-inner { transform: scale(1.05); }
+        .thumb-inner { transition: transform .55s ease; }
+        .portfolio-item .p-overlay { opacity: 0; transition: opacity .28s ease; }
+        .portfolio-item:hover .p-overlay { opacity: 1; }
+
+        /* ── Marquee ── */
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .marquee-inner { animation: marquee 28s linear infinite; display: inline-flex; white-space: nowrap; }
+        .marquee-wrap:hover .marquee-inner { animation-play-state: paused; }
+
+        /* ── Mobile menu ── */
+        #mobile-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .4s ease, opacity .3s ease; }
+        #mobile-menu.open { max-height: 500px; opacity: 1; }
+
+        /* ── Stat numbers ── */
+        .stat-num { font-variant-numeric: tabular-nums; }
+
+        /* ── Chat panel ── */
+        #chat-panel { transform: translateY(16px); opacity: 0; pointer-events: none; transition: transform .3s cubic-bezier(.22,1,.36,1), opacity .3s ease; }
+        #chat-panel.chat-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+        /* ── Form inputs ── */
+        .field {
+            width: 100%;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.12);
+            color: #fff;
+            padding: .75rem 1rem;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: .875rem;
+            transition: border-color .2s;
+            outline: none;
+            appearance: none;
+        }
+        .field::placeholder { color: rgba(255,255,255,.3); }
+        .field:focus { border-color: rgba(255,255,255,.45); }
+        .field option { background: #1C1C1C; color: #fff; }
+
+        /* ── Section spacing ── */
+        .section { padding: 96px 0; }
+        @media (max-width: 768px) { .section { padding: 64px 0; } }
+
+        /* ── Mood board grid ── */
+        .mood-tile { background: linear-gradient(135deg, var(--a), var(--b)); }
+
+        /* ── Testimonial ── */
+        .tcard { background: #fff; border: 1px solid #EDEDED; }
+
+        /* ── Notification bubble ── */
+        #chat-bubble { transition: opacity .35s ease, transform .35s ease; }
+
+        /* ── Counter ── */
+        @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+    </style>
+</head>
+
+<body class="bg-warm-white text-ink font-body">
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-5 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#home" class="cursor-pointer flex-shrink-0" aria-label="NH Home Staging & Renovations">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 58" height="46" role="img" aria-label="NH Home Staging & Renovations logo">
+                <title>NH Home Staging &amp; Renovations</title>
+                <!-- Outer border -->
+                <rect x="0.75" y="0.75" width="226.5" height="56.5" fill="none" stroke="white" stroke-width="1"/>
+                <!-- Inner border -->
+                <rect x="4" y="4" width="220" height="50" fill="none" stroke="white" stroke-width="0.45" opacity="0.5"/>
+                <!-- Vertical divider after NH box -->
+                <line x1="61" y1="4" x2="61" y2="54" stroke="white" stroke-width="0.6" opacity="0.5"/>
+                <!-- NH text -->
+                <text x="30.5" y="37" font-family="Cinzel, serif" font-size="19" font-weight="500" fill="white" text-anchor="middle" letter-spacing="1.5">NH</text>
+                <!-- HOME STAGING & -->
+                <text x="144" y="24.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="3.8">HOME STAGING &amp;</text>
+                <!-- RENOVATIONS -->
+                <text x="144" y="39.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="5">RENOVATIONS</text>
+            </svg>
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden lg:flex items-center gap-7">
+            <a href="#home"         class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Home</a>
+            <a href="#services"     class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Services</a>
+            <a href="#portfolio"    class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Portfolio</a>
+            <a href="#moodboards"   class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Mood Boards</a>
+            <a href="#testimonials" class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Testimonials</a>
+            <a href="#blog"         class="text-white/75 hover:text-white text-[11px] tracking-[.18em] uppercase transition-colors duration-200 ul-link cursor-pointer">Blog</a>
+            <a href="#contact"      class="btn-dark px-5 py-2.5 text-[11px] tracking-[.18em] uppercase font-body cursor-pointer">Contact Us</a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-btn" class="lg:hidden text-white cursor-pointer p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="icon-open"  width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="lg:hidden">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+            <a href="#home"         class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Home</a>
+            <a href="#services"     class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Services</a>
+            <a href="#portfolio"    class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Portfolio</a>
+            <a href="#moodboards"   class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Mood Boards</a>
+            <a href="#testimonials" class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Testimonials</a>
+            <a href="#blog"         class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Blog</a>
+            <a href="#contact"      class="m-link text-white text-sm tracking-[.15em] uppercase py-4 cursor-pointer transition-colors">Contact Us →</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="home" class="relative min-h-screen bg-ink flex items-center overflow-hidden">
+
+    <!-- Grid bg -->
+    <div class="absolute inset-0 hero-grid-bg"></div>
+
+    <!-- Animated vertical lines -->
+    <div class="absolute top-0 left-[22%] w-px h-full bg-gradient-to-b from-transparent via-white/8 to-transparent hero-line"></div>
+    <div class="absolute top-0 right-[22%] w-px h-full bg-gradient-to-b from-transparent via-white/8 to-transparent hero-line-2"></div>
+
+    <!-- Large BG text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-heading text-[18vw] font-bold text-white/[.025] leading-none tracking-tight whitespace-nowrap">STAGING</span>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full pt-32 pb-28">
+        <div class="max-w-4xl">
+            <p class="label label-light mb-8 reveal">Toronto's Premier Home Staging Studio · Est. 2020</p>
+
+            <h1 class="font-heading text-white font-semibold leading-[1.02] tracking-[-0.02em] reveal d1"
+                style="font-size: clamp(2.8rem, 7vw, 7rem);">
+                Home Staging<br>
+                <span class="text-white/25">&amp;</span> Renovations
+            </h1>
+
+            <p class="text-white/55 text-lg md:text-xl font-light leading-relaxed mt-8 max-w-2xl reveal d2">
+                Is your home just missing a <em class="text-white not-italic font-medium">Wow factor?</em>
+                Don't worry — we will help you out by giving a magical touch to your home interior.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-12 reveal d3">
+                <a href="#contact" class="btn-dark px-9 py-4 text-[11px] tracking-[.2em] uppercase font-body text-center cursor-pointer">Get a Free Quote</a>
+                <a href="#services" class="btn-outline-light px-9 py-4 text-[11px] tracking-[.2em] uppercase font-body text-center cursor-pointer">Our Services</a>
+            </div>
+
+            <div class="mt-20 flex items-center gap-4 reveal d4">
+                <div class="w-10 h-px bg-white/20"></div>
+                <span class="label label-light">Scroll to explore</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="absolute bottom-0 left-0 right-0 border-t border-white/8">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-6 grid grid-cols-3 gap-4 md:gap-8">
+            <div class="text-center reveal">
+                <div class="font-heading text-white text-2xl md:text-3xl stat-num" data-count="100" data-suffix="+">0+</div>
+                <div class="label label-light mt-1.5 hidden sm:block">Projects Completed</div>
+            </div>
+            <div class="text-center reveal d1">
+                <div class="font-heading text-white text-2xl md:text-3xl">48h</div>
+                <div class="label label-light mt-1.5 hidden sm:block">Fast Turnaround</div>
+            </div>
+            <div class="text-center reveal d2">
+                <div class="font-heading text-white text-2xl md:text-3xl">5★</div>
+                <div class="label label-light mt-1.5 hidden sm:block">Client Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     MARQUEE
+═══════════════════════════════════════════════ -->
+<div class="bg-white border-y border-gray-100 py-4 overflow-hidden marquee-wrap">
+    <div class="marquee-inner">
+        <!-- Repeated twice for seamless loop -->
+        <span class="inline-flex items-center gap-10 px-8 text-[10px] tracking-[.22em] uppercase text-stone">
+            Home Staging &nbsp;·&nbsp; Virtual Staging &nbsp;·&nbsp; Interior Design &nbsp;·&nbsp; Accent Furniture &nbsp;·&nbsp; Mood Boards &nbsp;·&nbsp; Wallpaper &amp; Paint &nbsp;·&nbsp; Wall Art &nbsp;·&nbsp; Toronto &nbsp;·&nbsp; Realtors &nbsp;·&nbsp; AirBnB &nbsp;·&nbsp; Resale &nbsp;·&nbsp; GTA &nbsp;·&nbsp;
+        </span>
+        <span class="inline-flex items-center gap-10 px-8 text-[10px] tracking-[.22em] uppercase text-stone">
+            Home Staging &nbsp;·&nbsp; Virtual Staging &nbsp;·&nbsp; Interior Design &nbsp;·&nbsp; Accent Furniture &nbsp;·&nbsp; Mood Boards &nbsp;·&nbsp; Wallpaper &amp; Paint &nbsp;·&nbsp; Wall Art &nbsp;·&nbsp; Toronto &nbsp;·&nbsp; Realtors &nbsp;·&nbsp; AirBnB &nbsp;·&nbsp; Resale &nbsp;·&nbsp; GTA &nbsp;·&nbsp;
+        </span>
+        <span class="inline-flex items-center gap-10 px-8 text-[10px] tracking-[.22em] uppercase text-stone">
+            Home Staging &nbsp;·&nbsp; Virtual Staging &nbsp;·&nbsp; Interior Design &nbsp;·&nbsp; Accent Furniture &nbsp;·&nbsp; Mood Boards &nbsp;·&nbsp; Wallpaper &amp; Paint &nbsp;·&nbsp; Wall Art &nbsp;·&nbsp; Toronto &nbsp;·&nbsp; Realtors &nbsp;·&nbsp; AirBnB &nbsp;·&nbsp; Resale &nbsp;·&nbsp; GTA &nbsp;·&nbsp;
+        </span>
+        <span class="inline-flex items-center gap-10 px-8 text-[10px] tracking-[.22em] uppercase text-stone">
+            Home Staging &nbsp;·&nbsp; Virtual Staging &nbsp;·&nbsp; Interior Design &nbsp;·&nbsp; Accent Furniture &nbsp;·&nbsp; Mood Boards &nbsp;·&nbsp; Wallpaper &amp; Paint &nbsp;·&nbsp; Wall Art &nbsp;·&nbsp; Toronto &nbsp;·&nbsp; Realtors &nbsp;·&nbsp; AirBnB &nbsp;·&nbsp; Resale &nbsp;·&nbsp; GTA &nbsp;·&nbsp;
+        </span>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     WHY STAGING
+═══════════════════════════════════════════════ -->
+<section id="why-staging" class="section bg-linen">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <!-- Why Important -->
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center mb-28">
+            <div class="reveal-left">
+                <p class="label mb-6">Why It Matters</p>
+                <h2 class="font-heading text-4xl md:text-5xl font-semibold leading-tight mb-8">Why is Staging<br>Important?</h2>
+                <div class="divider mb-8 text-ink"></div>
+                <p class="text-stone text-base leading-relaxed mb-8">
+                    Home staging helps showcase your property's best features, creating a strong first impression that attracts more buyers. A well-staged home can sell faster and often for a higher price by helping buyers envision themselves living in the space.
+                </p>
+                <a href="#services" class="btn-outline-dark px-7 py-3 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Explore Services</a>
+            </div>
+            <div class="reveal-right">
+                <div class="relative">
+                    <div class="bg-ink aspect-[4/3] flex items-end p-10">
+                        <div>
+                            <div class="label label-light mb-3">The Outcome</div>
+                            <div class="font-heading text-white text-4xl font-semibold leading-tight">Sell Faster.</div>
+                            <div class="font-heading text-white text-4xl font-semibold leading-tight">Sell Higher.</div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-4 md:-right-8 bg-white border border-gray-100 p-6 shadow-xl w-44">
+                        <div class="font-heading text-ink text-4xl font-semibold">38%</div>
+                        <div class="text-stone text-xs mt-2 leading-snug">faster sale with professional staging</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Staging -->
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center mb-28 pt-8 border-t border-gray-200">
+            <div class="order-2 lg:order-1 reveal-left">
+                <div class="relative">
+                    <div class="bg-charcoal aspect-[4/3] flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-16 h-16 border border-white/20 mx-auto mb-5 flex items-center justify-center">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" aria-hidden="true">
+                                    <rect x="2" y="3" width="20" height="14" rx="1"/>
+                                    <path d="M8 21h8M12 17v4"/>
+                                </svg>
+                            </div>
+                            <div class="font-heading text-white text-lg">Virtual Staging</div>
+                            <div class="text-white/35 text-xs mt-1 tracking-wider">Starting from $199</div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-5 -left-4 md:-left-8 bg-ink border border-white/8 p-5 w-36">
+                        <div class="font-heading text-white text-3xl font-semibold">MLS</div>
+                        <div class="text-white/45 text-xs mt-1 leading-snug">listing ready photos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 reveal-right">
+                <p class="label mb-6">Digital Transformation</p>
+                <h2 class="font-heading text-4xl md:text-5xl font-semibold leading-tight mb-8">What is Virtual Staging?</h2>
+                <div class="divider mb-8 text-ink"></div>
+                <p class="text-stone text-base leading-relaxed mb-4">
+                    Virtual staging uses digital technology to add realistic furniture, décor, and design elements to photos of empty or outdated spaces. It helps buyers visualize a home's potential and increases online engagement — often leading to more showings and a faster sale.
+                </p>
+                <p class="text-stone text-base leading-relaxed">
+                    You can show these virtual staging photos directly on the <strong class="text-ink font-medium">MLS listing</strong> for your property sale.
+                </p>
+            </div>
+        </div>
+
+        <!-- Small Renovations -->
+        <div class="pt-8 border-t border-gray-200 reveal">
+            <p class="label mb-4 text-center">Small Changes, Big Impact</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold text-center max-w-2xl mx-auto leading-tight mb-4">How Small Renovations Give Your Home a New Look</h2>
+            <div class="flex justify-center mb-6"><div class="divider text-ink"></div></div>
+            <p class="text-stone text-base leading-relaxed text-center max-w-3xl mx-auto mb-14">
+                We design the Mood Board as per your taste with a <strong class="text-ink font-medium">1st free consultation meeting</strong>, and will pick the accent furniture by shopping around, as well as accessories, wallpapers, paints &amp; wall arts. These renovations will modify the look by adding new accent furniture, curtains, wall art, wallpaper, paint &amp; all other small details.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center reveal d1">
+                    <div class="w-14 h-14 border border-gray-200 mx-auto mb-4 flex items-center justify-center">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <div class="font-heading text-sm font-medium">Accent Furniture</div>
+                    <div class="text-stone text-xs mt-1">Handpicked statement pieces</div>
+                </div>
+                <div class="text-center reveal d2">
+                    <div class="w-14 h-14 border border-gray-200 mx-auto mb-4 flex items-center justify-center">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
+                    </div>
+                    <div class="font-heading text-sm font-medium">Wallpaper &amp; Paint</div>
+                    <div class="text-stone text-xs mt-1">Transform any wall</div>
+                </div>
+                <div class="text-center reveal d3">
+                    <div class="w-14 h-14 border border-gray-200 mx-auto mb-4 flex items-center justify-center">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 22a7 7 0 007-7c0-2-1-3.9-3-5.5S12 4 12 4s-4 3-4 5.5C6 12.1 5 14 5 15a7 7 0 007 7z"/></svg>
+                    </div>
+                    <div class="font-heading text-sm font-medium">Wall Art</div>
+                    <div class="text-stone text-xs mt-1">Curated art curation</div>
+                </div>
+                <div class="text-center reveal d4">
+                    <div class="w-14 h-14 border border-gray-200 mx-auto mb-4 flex items-center justify-center">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    </div>
+                    <div class="font-heading text-sm font-medium">Curtains &amp; Decor</div>
+                    <div class="text-stone text-xs mt-1">Finishing touches</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section id="services" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <div class="text-center mb-16 reveal">
+            <p class="label mb-4">What We Offer</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold">Our Services</h2>
+            <div class="flex justify-center mt-5"><div class="divider text-ink"></div></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-14">
+
+            <!-- Card 1: Home Staging -->
+            <div class="service-card border border-gray-100 p-10 reveal d1">
+                <div class="w-11 h-11 border border-gray-200 flex items-center justify-center mb-8" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                </div>
+                <div class="w-5 h-px bg-gray-200 mb-6"></div>
+                <div class="label mb-3">01</div>
+                <h3 class="font-heading text-2xl font-semibold mb-4">Home Staging</h3>
+                <p class="text-stone text-sm leading-relaxed mb-7">Suitable for home sellers &amp; realtors. We transform spaces to highlight their best features, attract more buyers, and achieve a higher sale price.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="border border-gray-100 text-stone text-xs px-3 py-1">Home Sellers</span>
+                    <span class="border border-gray-100 text-stone text-xs px-3 py-1">Realtors</span>
+                    <span class="border border-gray-100 text-stone text-xs px-3 py-1">AirBnB</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Virtual Staging (featured) -->
+            <div class="service-card bg-ink border border-ink p-10 reveal d2">
+                <div class="w-11 h-11 border border-white/20 flex items-center justify-center mb-8" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div class="w-5 h-px bg-white/15 mb-6"></div>
+                <div class="label label-light mb-3">02</div>
+                <h3 class="font-heading text-2xl font-semibold text-white mb-4">Virtual Staging</h3>
+                <p class="text-white/50 text-sm leading-relaxed mb-7">Suitable for home sellers &amp; realtors. Photorealistic digital furniture and décor placement for compelling MLS listing photos that drive more online views.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="border border-white/10 text-white/45 text-xs px-3 py-1">MLS Ready</span>
+                    <span class="border border-white/10 text-white/45 text-xs px-3 py-1">48h Delivery</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Interior Design -->
+            <div class="service-card border border-gray-100 p-10 reveal d3">
+                <div class="w-11 h-11 border border-gray-200 flex items-center justify-center mb-8" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="w-5 h-px bg-gray-200 mb-6"></div>
+                <div class="label mb-3">03</div>
+                <h3 class="font-heading text-2xl font-semibold mb-4">Interior Design</h3>
+                <p class="text-stone text-sm leading-relaxed mb-7">Suitable for small renovations without any demolition. Adding accent furniture, paint, accessories, wallpaper &amp; all other beautiful details that transform your space.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="border border-gray-100 text-stone text-xs px-3 py-1">No Demolition</span>
+                    <span class="border border-gray-100 text-stone text-xs px-3 py-1">Renovation</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center reveal">
+            <a href="#contact" class="btn-dark px-10 py-4 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Get a Free Quote</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PORTFOLIO
+═══════════════════════════════════════════════ -->
+<section id="portfolio" class="section bg-linen">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <div class="text-center mb-14 reveal">
+            <p class="label mb-4">Our Work</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold">Portfolio</h2>
+            <div class="flex justify-center mt-5 mb-6"><div class="divider text-ink"></div></div>
+            <p class="text-stone text-sm max-w-lg mx-auto">Stunning transformations coming soon. <br class="hidden sm:inline">We will add real project photos shortly — here's a preview of our categories.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <!-- Item 1 -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d1">
+                <div class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-200 flex items-end p-5">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Living Room</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d2">
+                <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-350 flex items-end p-5" style="background: linear-gradient(135deg,#DADADA,#C8C8C8)">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Bedroom</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Virtual Staging</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 — tall on mobile -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d3 col-span-2 md:col-span-1" style="aspect-ratio: 1/1">
+                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E2E2E2,#CBCBCB)">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Kitchen</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Accent Refresh</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal">
+                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#CFCFCF,#DCDCDC)">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Dining Room</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d1">
+                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E8E8E8,#D0D0D0)">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Home Office</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Interior Design</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d2">
+                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#D8D8D8,#E5E5E5)">
+                    <div>
+                        <div class="font-heading text-gray-600 text-sm">Condo Suite</div>
+                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
+                    </div>
+                </div>
+                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
+                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-stone text-[11px] tracking-[.2em] uppercase mt-8 reveal">Portfolio photos will be updated soon with real projects</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     MOOD BOARDS
+═══════════════════════════════════════════════ -->
+<section id="moodboards" class="section bg-ink">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+            <!-- Text -->
+            <div class="reveal-left">
+                <p class="label label-light mb-6">Design Process</p>
+                <h2 class="font-heading text-white text-4xl md:text-5xl font-semibold mb-8">Mood Boards</h2>
+                <div class="w-10 h-px bg-white/20 mb-8"></div>
+                <p class="text-white/55 text-base leading-relaxed mb-5">
+                    Our mood board process is a collaborative renovation tool. We sit down with you to understand your requirements, preferences, and vision — then build a visual theme that captures exactly what you want.
+                </p>
+                <p class="text-white/55 text-base leading-relaxed mb-10">
+                    It's like a material theme — combining textures, colour palettes, furniture styles, and finishes into one visual story. We walk you through every element so you can see your transformed space before we begin.
+                </p>
+
+                <div class="space-y-5 mb-10">
+                    <div class="flex items-start gap-4 reveal d1">
+                        <div class="w-6 h-6 border border-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Free First Consultation</div>
+                            <div class="text-white/35 text-xs mt-0.5">We discuss your taste, budget and vision at no cost</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 reveal d2">
+                        <div class="w-6 h-6 border border-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Theme &amp; Material Selection</div>
+                            <div class="text-white/35 text-xs mt-0.5">Colours, textures, furniture styles, finishes curated for you</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 reveal d3">
+                        <div class="w-6 h-6 border border-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">Shopping &amp; Sourcing</div>
+                            <div class="text-white/35 text-xs mt-0.5">We handpick every accent piece, accessory and material</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contact" class="btn-outline-light px-8 py-3.5 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Book Free Consultation</a>
+            </div>
+
+            <!-- Mood board grid -->
+            <div class="grid grid-cols-3 grid-rows-3 gap-2 h-[420px] reveal-right">
+                <div class="col-span-1 row-span-1 bg-gray-300"></div>
+                <div class="col-span-2 row-span-2" style="background: linear-gradient(135deg,#E0E0E0,#C0C0C0)"></div>
+                <div class="col-span-1 row-span-1" style="background: linear-gradient(135deg,#D0D0D0,#E8E8E8)"></div>
+                <div class="col-span-2 row-span-1 border border-white/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="font-heading text-white/80 text-sm">Your Vision</div>
+                        <div class="text-white/30 text-xs mt-1">Brought to Life</div>
+                    </div>
+                </div>
+                <div class="col-span-1 row-span-1 bg-gray-500"></div>
+                <div class="col-span-1 row-span-1" style="background:#888"></div>
+                <div class="col-span-1 row-span-1 bg-gray-200"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PRICING
+═══════════════════════════════════════════════ -->
+<section id="pricing" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <div class="text-center mb-16 reveal">
+            <p class="label mb-4">Transparent Pricing</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold">Staging Packages</h2>
+            <div class="flex justify-center mt-5 mb-6"><div class="divider text-ink"></div></div>
+            <p class="text-stone text-sm max-w-lg mx-auto">Choose the package that fits your property. All packages include a free first consultation.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Starter -->
+            <div class="pricing-card border border-gray-100 p-8 reveal d1">
+                <div class="label mb-3">Starter</div>
+                <div class="font-heading text-4xl font-semibold mb-1">$499</div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
+                <ul class="space-y-3 mb-9 text-sm text-stone">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Up to 2 rooms</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Furniture placement</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accessory styling</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Free consultation</li>
+                </ul>
+                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+            <!-- Regular -->
+            <div class="pricing-card border border-gray-100 p-8 reveal d2">
+                <div class="label mb-3">Regular</div>
+                <div class="font-heading text-4xl font-semibold mb-1">$999</div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
+                <ul class="space-y-3 mb-9 text-sm text-stone">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Up to 4 rooms</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Furniture + décor</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Mood board included</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Free consultation</li>
+                </ul>
+                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+            <!-- Extraordinary — featured -->
+            <div class="pricing-card relative bg-ink border border-ink p-8 reveal d3">
+                <div class="absolute -top-3.5 left-8 bg-white border border-gray-100 px-3 py-1 text-[10px] tracking-[.16em] uppercase text-ink font-medium">Most Popular</div>
+                <div class="label label-light mb-3">Extraordinary</div>
+                <div class="font-heading text-4xl font-semibold text-white mb-1">$1,499</div>
+                <div class="text-white/35 text-xs mb-7 pb-7 border-b border-white/10">Staging Package</div>
+                <ul class="space-y-3 mb-9 text-sm text-white/60">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Full home staging</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Premium furniture selection</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Mood board + shopping</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Wall art &amp; accessories</li>
+                </ul>
+                <a href="#contact" class="bg-white text-ink hover:bg-gray-100 transition-colors px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+            <!-- Luxurious -->
+            <div class="pricing-card border border-gray-100 p-8 reveal d1">
+                <div class="label mb-3">Luxurious</div>
+                <div class="font-heading text-4xl font-semibold mb-1">$1,999<span class="text-2xl font-light text-stone">+</span></div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
+                <ul class="space-y-3 mb-9 text-sm text-stone">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Luxury property staging</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Designer furniture</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Premium art curation</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>White-glove service</li>
+                </ul>
+                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+            <!-- Virtual -->
+            <div class="pricing-card border border-gray-100 p-8 reveal d2">
+                <div class="label mb-3">Virtual</div>
+                <div class="font-heading text-4xl font-semibold mb-1">$199<span class="text-2xl font-light text-stone">+</span></div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Digital Staging</div>
+                <ul class="space-y-3 mb-9 text-sm text-stone">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Photorealistic renders</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>MLS-ready photos</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>48h turnaround</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Multiple style options</li>
+                </ul>
+                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+            <!-- Interior Design -->
+            <div class="pricing-card border border-gray-100 p-8 reveal d3">
+                <div class="label mb-3">Interior Design</div>
+                <div class="font-heading text-4xl font-semibold mb-1">$499<span class="text-2xl font-light text-stone">+</span></div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">No Demolition</div>
+                <ul class="space-y-3 mb-9 text-sm text-stone">
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accent furniture selection</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Paint &amp; wallpaper</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accessories &amp; wall art</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Mood board included</li>
+                </ul>
+                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     COUNTER STRIP
+═══════════════════════════════════════════════ -->
+<section class="bg-ink" style="padding: 80px 0;">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="reveal">
+                <div class="font-heading text-white stat-num text-5xl md:text-6xl font-semibold" data-count="100" data-suffix="+">0</div>
+                <div class="label label-light mt-3">Projects Completed</div>
+            </div>
+            <div class="reveal d1">
+                <div class="font-heading text-white text-5xl md:text-6xl font-semibold">38<span class="text-3xl">%</span></div>
+                <div class="label label-light mt-3">Faster Sale Rate</div>
+            </div>
+            <div class="reveal d2">
+                <div class="font-heading text-white text-5xl md:text-6xl font-semibold">48<span class="text-3xl font-light">h</span></div>
+                <div class="label label-light mt-3">Avg. Turnaround</div>
+            </div>
+            <div class="reveal d3">
+                <div class="font-heading text-white text-5xl md:text-6xl font-semibold">5<span class="text-3xl">★</span></div>
+                <div class="label label-light mt-3">Star Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section id="testimonials" class="section bg-linen">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <div class="text-center mb-16 reveal">
+            <p class="label mb-4">Client Stories</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold">What Clients Say</h2>
+            <div class="flex justify-center mt-5"><div class="divider text-ink"></div></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- T1 -->
+            <div class="tcard p-8 reveal d1">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"NH Staging transformed our condo completely. We listed on a Friday and had 3 offers by Monday — sold $40K over asking. The team's attention to detail is incredible."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">SM</span></div>
+                    <div><div class="font-heading text-sm font-medium">Sarah M.</div><div class="text-stone text-xs">North York, Toronto</div></div>
+                </div>
+            </div>
+            <!-- T2 -->
+            <div class="tcard p-8 reveal d2">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"Used their virtual staging for my listing photos. The results were stunning — online views went up dramatically. Best investment I made for this sale. Highly recommend to any realtor."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">DK</span></div>
+                    <div><div class="font-heading text-sm font-medium">David K.</div><div class="text-stone text-xs">Realtor, Mississauga</div></div>
+                </div>
+            </div>
+            <!-- T3 -->
+            <div class="tcard p-8 reveal d3">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"The mood board consultation was eye-opening. They redesigned my living room with accent pieces and new wallpaper — no demolition needed. It feels like a brand new home!"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">AP</span></div>
+                    <div><div class="font-heading text-sm font-medium">Anika P.</div><div class="text-stone text-xs">Homeowner, Brampton</div></div>
+                </div>
+            </div>
+            <!-- T4 -->
+            <div class="tcard p-8 reveal">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"I used NH Staging for my AirBnB renovation. Beautiful accent furniture and art that fits the space perfectly. My booking rate went up by 40%. Absolutely worth every penny."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">RJ</span></div>
+                    <div><div class="font-heading text-sm font-medium">Raj J.</div><div class="text-stone text-xs">AirBnB Host, Toronto</div></div>
+                </div>
+            </div>
+            <!-- T5 -->
+            <div class="tcard p-8 reveal d1">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"Professional, quick, results speak for themselves. My semi-detached in Scarborough was staged beautifully. The staging fee paid for itself tenfold — sold well over asking price."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">LC</span></div>
+                    <div><div class="font-heading text-sm font-medium">Linda C.</div><div class="text-stone text-xs">Homeowner, Scarborough</div></div>
+                </div>
+            </div>
+            <!-- T6 -->
+            <div class="tcard p-8 reveal d2">
+                <div class="flex gap-0.5 mb-6" aria-label="5 stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-stone text-sm leading-relaxed mb-7 italic">"As a realtor I regularly partner with NH Staging. Their virtual staging photos generate significantly more enquiries. My clients are always thrilled with the transformation."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="font-heading text-sm font-medium">MT</span></div>
+                    <div><div class="font-heading text-sm font-medium">Mark T.</div><div class="text-stone text-xs">Senior Realtor, Toronto</div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     BLOG
+═══════════════════════════════════════════════ -->
+<section id="blog" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+        <div class="text-center mb-16 reveal">
+            <p class="label mb-4">Insights &amp; Tips</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold">Blog</h2>
+            <div class="flex justify-center mt-5"><div class="divider text-ink"></div></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+
+            <!-- Blog 1 -->
+            <article class="blog-card cursor-pointer reveal d1">
+                <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
+                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#DCDCDC,#BEBEBE)">
+                        <span class="label text-gray-500">Home Staging Tips</span>
+                    </div>
+                </div>
+                <div class="label mb-3">5 min read · June 2025</div>
+                <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">5 Home Staging Trends Taking Toronto by Storm in 2025</h3>
+                <p class="text-stone text-sm leading-relaxed mb-5">From minimalist scandi-inspired setups to warm earthy palettes, discover the staging styles winning over Toronto buyers and realtors this season.</p>
+                <span class="text-[11px] tracking-[.18em] uppercase text-ink ul-link cursor-pointer">Read Article →</span>
+            </article>
+
+            <!-- Blog 2 -->
+            <article class="blog-card cursor-pointer reveal d2">
+                <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
+                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#C8C8C8,#E0E0E0)">
+                        <span class="label text-gray-500">Virtual Staging</span>
+                    </div>
+                </div>
+                <div class="label mb-3">4 min read · May 2025</div>
+                <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">How Virtual Staging Helps Your Home Sell 40% Faster</h3>
+                <p class="text-stone text-sm leading-relaxed mb-5">Empty rooms are a buyer's biggest turn-off. Virtual staging fills them with photorealistic furniture, creating compelling MLS images that drive more showings.</p>
+                <span class="text-[11px] tracking-[.18em] uppercase text-ink ul-link cursor-pointer">Read Article →</span>
+            </article>
+
+            <!-- Blog 3 -->
+            <article class="blog-card cursor-pointer reveal d3">
+                <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
+                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E5E5E5,#CACACA)">
+                        <span class="label text-gray-500">Renovation</span>
+                    </div>
+                </div>
+                <div class="label mb-3">6 min read · May 2025</div>
+                <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Why Renovation Without Demolition is the Smartest Choice</h3>
+                <p class="text-stone text-sm leading-relaxed mb-5">You don't need to tear down walls to transform a room. Smart accent furniture, new wallpaper, and curated accessories can completely change how a space feels.</p>
+                <span class="text-[11px] tracking-[.18em] uppercase text-ink ul-link cursor-pointer">Read Article →</span>
+            </article>
+
+            <!-- Blog 4 -->
+            <article class="blog-card cursor-pointer reveal">
+                <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
+                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#D5D5D5,#E8E8E8)">
+                        <span class="label text-gray-500">Realtors Guide</span>
+                    </div>
+                </div>
+                <div class="label mb-3">4 min read · April 2025</div>
+                <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Why Every Realtor in Toronto Should Partner with a Staging Team</h3>
+                <p class="text-stone text-sm leading-relaxed mb-5">Staged listings receive 3× more online views. We break down the ROI of staging partnerships for real estate agents in the Greater Toronto Area.</p>
+                <span class="text-[11px] tracking-[.18em] uppercase text-ink ul-link cursor-pointer">Read Article →</span>
+            </article>
+
+            <!-- Blog 5 -->
+            <article class="blog-card cursor-pointer reveal d1">
+                <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
+                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#BABABA,#D8D8D8)">
+                        <span class="label text-gray-500">AirBnB</span>
+                    </div>
+                </div>
+                <div class="label mb-3">5 min read · April 2025</div>
+                <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Staging Your AirBnB: How to Increase Bookings by 30%</h3>
+                <p class="text-stone text-sm leading-relaxed mb-5">A well-staged AirBnB commands higher nightly rates and better reviews. Our guide covers the key design elements that make guests hit "Book Now."</p>
+                <span class="text-[11px] tracking-[.18em] uppercase text-ink ul-link cursor-pointer">Read Article →</span>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT / GET A QUOTE
+═══════════════════════════════════════════════ -->
+<section id="contact" class="section bg-ink">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+            <!-- Info -->
+            <div class="reveal-left">
+                <p class="label label-light mb-6">Let's Talk</p>
+                <h2 class="font-heading text-white text-4xl md:text-5xl font-semibold mb-8">Get a Free Quote</h2>
+                <div class="w-10 h-px bg-white/20 mb-8"></div>
+                <p class="text-white/55 text-base leading-relaxed mb-14">Fill out the form and we'll get back to you within 24 hours with a personalised quote and staging plan for your property.</p>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium mb-1">Phone</div>
+                            <div class="text-white/45 text-sm">Provided upon contact</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium mb-1">Email</div>
+                            <div class="text-white/45 text-sm">info@nhstaging.ca</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium mb-1">Location</div>
+                            <div class="text-white/45 text-sm">Toronto, Ontario, Canada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="reveal-right">
+                <form id="quote-form" novalidate onsubmit="handleQuote(event)">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="q-fname" class="label label-light block mb-2">First Name *</label>
+                            <input type="text" id="q-fname" name="fname" required autocomplete="given-name" class="field" placeholder="Jane">
+                        </div>
+                        <div>
+                            <label for="q-lname" class="label label-light block mb-2">Last Name *</label>
+                            <input type="text" id="q-lname" name="lname" required autocomplete="family-name" class="field" placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="q-email" class="label label-light block mb-2">Email Address *</label>
+                        <input type="email" id="q-email" name="email" required autocomplete="email" class="field" placeholder="jane@example.com">
+                    </div>
+                    <div class="mb-4">
+                        <label for="q-phone" class="label label-light block mb-2">Phone Number</label>
+                        <input type="tel" id="q-phone" name="phone" autocomplete="tel" class="field" placeholder="+1 (416) 000-0000">
+                    </div>
+                    <div class="mb-4">
+                        <label for="q-type" class="label label-light block mb-2">Property Type *</label>
+                        <select id="q-type" name="property_type" required class="field cursor-pointer">
+                            <option value="" disabled selected>Select property type</option>
+                            <option value="detached">Detached House</option>
+                            <option value="semi">Semi-Detached</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="condo">Condo / Apartment</option>
+                            <option value="airbnb">AirBnB Property</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="q-bed" class="label label-light block mb-2">Bedrooms *</label>
+                            <select id="q-bed" name="bedrooms" required class="field cursor-pointer">
+                                <option value="" disabled selected>Select</option>
+                                <option value="studio">Studio</option>
+                                <option value="1">1 Bedroom</option>
+                                <option value="2">2 Bedrooms</option>
+                                <option value="3">3 Bedrooms</option>
+                                <option value="4">4 Bedrooms</option>
+                                <option value="5+">5+ Bedrooms</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="q-wash" class="label label-light block mb-2">Washrooms *</label>
+                            <select id="q-wash" name="washrooms" required class="field cursor-pointer">
+                                <option value="" disabled selected>Select</option>
+                                <option value="1">1 Washroom</option>
+                                <option value="2">2 Washrooms</option>
+                                <option value="3">3 Washrooms</option>
+                                <option value="4+">4+ Washrooms</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="q-service" class="label label-light block mb-2">Service Interested In</label>
+                        <select id="q-service" name="service" class="field cursor-pointer">
+                            <option value="">Select a service (optional)</option>
+                            <option value="home-staging">Home Staging</option>
+                            <option value="virtual-staging">Virtual Staging</option>
+                            <option value="interior-design">Interior Design</option>
+                            <option value="not-sure">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="q-msg" class="label label-light block mb-2">Additional Details</label>
+                        <textarea id="q-msg" name="message" rows="3" class="field resize-none" placeholder="Tell us about your property, timeline, or any special requirements..."></textarea>
+                    </div>
+                    <button type="submit" id="q-btn" class="btn-dark w-full py-4 text-[11px] tracking-[.2em] uppercase font-body cursor-pointer">
+                        <span id="q-btn-label">Send Quote Request</span>
+                    </button>
+                    <div id="q-success" class="hidden text-center text-white/60 text-sm mt-4 py-1">
+                        ✓ Thank you! We'll be in touch within 24 hours.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="bg-charcoal border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+        <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="md:col-span-2">
+                <div class="mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 58" height="50" role="img" aria-label="NH Home Staging & Renovations logo">
+                        <title>NH Home Staging &amp; Renovations</title>
+                        <!-- Outer border -->
+                        <rect x="0.75" y="0.75" width="226.5" height="56.5" fill="none" stroke="white" stroke-width="1"/>
+                        <!-- Inner border -->
+                        <rect x="4" y="4" width="220" height="50" fill="none" stroke="white" stroke-width="0.45" opacity="0.5"/>
+                        <!-- Vertical divider after NH box -->
+                        <line x1="61" y1="4" x2="61" y2="54" stroke="white" stroke-width="0.6" opacity="0.5"/>
+                        <!-- NH text -->
+                        <text x="30.5" y="37" font-family="Cinzel, serif" font-size="19" font-weight="500" fill="white" text-anchor="middle" letter-spacing="1.5">NH</text>
+                        <!-- HOME STAGING & -->
+                        <text x="144" y="24.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="3.8">HOME STAGING &amp;</text>
+                        <!-- RENOVATIONS -->
+                        <text x="144" y="39.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="5">RENOVATIONS</text>
+                    </svg>
+                </div>
+                <p class="text-white/35 text-sm leading-relaxed max-w-xs">Toronto's premier home staging and interior design studio. Transforming properties to sell faster and for more.</p>
+                <p class="text-white/20 text-xs mt-4">Toronto, Ontario, Canada</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <div class="label label-light mb-6">Quick Links</div>
+                <ul class="space-y-3">
+                    <li><a href="#home"         class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Home</a></li>
+                    <li><a href="#services"     class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Services</a></li>
+                    <li><a href="#portfolio"    class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Portfolio</a></li>
+                    <li><a href="#moodboards"   class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Mood Boards</a></li>
+                    <li><a href="#pricing"      class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Pricing</a></li>
+                    <li><a href="#blog"         class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Blog</a></li>
+                </ul>
+            </div>
+            <!-- Services -->
+            <div>
+                <div class="label label-light mb-6">Services</div>
+                <ul class="space-y-3">
+                    <li><a href="#services"  class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Home Staging</a></li>
+                    <li><a href="#services"  class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Virtual Staging</a></li>
+                    <li><a href="#services"  class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Interior Design</a></li>
+                    <li><a href="#moodboards" class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Mood Board Sessions</a></li>
+                    <li><a href="#contact"   class="text-white/50 hover:text-white text-sm transition-colors cursor-pointer ul-link">Free Consultation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="text-white/25 text-xs">© 2025 NH Staging &amp; Renovations · Toronto, Ontario, Canada</div>
+            <div class="text-white/15 text-xs">Home Staging · Virtual Staging · Interior Design · GTA</div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     CHAT WIDGET
+═══════════════════════════════════════════════ -->
+<!-- Trigger button -->
+<button id="chat-btn" aria-label="Chat with us" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-ink rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:bg-slate transition-colors duration-200">
+    <svg id="ci-open"  width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <svg id="ci-close" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" aria-hidden="true" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+
+<!-- Chat panel -->
+<div id="chat-panel" role="dialog" aria-label="Chat with NH Staging" class="fixed bottom-24 right-6 z-50 w-80 bg-white shadow-2xl border border-gray-100 flex flex-col" style="max-height:480px;">
+
+    <!-- Header -->
+    <div class="bg-ink px-5 py-4 flex items-center gap-3 flex-shrink-0">
+        <div class="w-8 h-8 border border-white/25 flex items-center justify-center flex-shrink-0">
+            <span class="font-heading text-white text-xs">NH</span>
+        </div>
+        <div>
+            <div class="font-heading text-white text-sm">NH Staging</div>
+            <div class="flex items-center gap-1.5 mt-0.5">
+                <div class="w-1.5 h-1.5 bg-green-400 rounded-full" aria-hidden="true"></div>
+                <span class="text-white/45 text-xs">Usually replies in minutes</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-msgs" class="flex-1 overflow-y-auto p-4 space-y-3" style="max-height:220px;">
+        <div class="flex gap-2 items-start">
+            <div class="w-7 h-7 bg-ink rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white text-[10px] font-heading">N</span>
+            </div>
+            <div class="bg-gray-50 rounded-xl rounded-tl-none p-3 max-w-[85%]">
+                <p class="text-ink text-xs leading-relaxed">Hi there! 👋 Tell me about your property and what you're looking for — I'll connect you with our team right away.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input area -->
+    <div id="chat-input-area" class="border-t border-gray-100 p-4 flex-shrink-0">
+        <div id="chat-step-a">
+            <input type="text"  id="c-name"    placeholder="Your name"         class="w-full border border-gray-200 px-3 py-2 text-xs text-ink placeholder-gray-400 mb-2 outline-none focus:border-ink transition-colors" style="font-family:'Josefin Sans',sans-serif;">
+            <input type="tel"   id="c-phone"   placeholder="Your phone number" class="w-full border border-gray-200 px-3 py-2 text-xs text-ink placeholder-gray-400 mb-2 outline-none focus:border-ink transition-colors" style="font-family:'Josefin Sans',sans-serif;">
+            <textarea           id="c-msg"     placeholder="Tell us about your property..." rows="2" class="w-full border border-gray-200 px-3 py-2 text-xs text-ink placeholder-gray-400 mb-3 resize-none outline-none focus:border-ink transition-colors" style="font-family:'Josefin Sans',sans-serif;"></textarea>
+            <button onclick="sendChat()" class="btn-dark w-full py-2.5 text-[10px] tracking-[.18em] uppercase font-body cursor-pointer">Send Message</button>
+        </div>
+        <div id="chat-step-b" class="hidden text-center py-5">
+            <svg class="w-8 h-8 mx-auto mb-3 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="font-heading text-sm text-ink mb-1">Message Sent!</div>
+            <div class="text-stone text-xs">We'll get back to you very soon.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+/* ──────────────────────────────────────────
+   Scroll Reveal — Intersection Observer
+────────────────────────────────────────── */
+(function(){
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => io.observe(el));
+})();
+
+/* ──────────────────────────────────────────
+   Counter Animation
+────────────────────────────────────────── */
+(function(){
+    const co = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            let cur = 0, steps = 70;
+            const inc = Math.ceil(target / steps);
+            const id = setInterval(() => {
+                cur = Math.min(cur + inc, target);
+                el.textContent = cur + suffix;
+                if (cur >= target) clearInterval(id);
+            }, 28);
+            co.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+})();
+
+/* ──────────────────────────────────────────
+   Navbar — scroll state
+────────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 72);
+}, { passive: true });
+
+/* ──────────────────────────────────────────
+   Mobile menu
+────────────────────────────────────────── */
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const iconOpen  = document.getElementById('icon-open');
+const iconClose = document.getElementById('icon-close');
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    iconOpen.classList.toggle('hidden', menuOpen);
+    iconClose.classList.toggle('hidden', !menuOpen);
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+});
+document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.classList.remove('open');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+}));
+
+/* ──────────────────────────────────────────
+   Chat widget
+────────────────────────────────────────── */
+const chatBtn   = document.getElementById('chat-btn');
+const chatPanel = document.getElementById('chat-panel');
+const ciOpen    = document.getElementById('ci-open');
+const ciClose   = document.getElementById('ci-close');
+let chatVisible = false;
+
+chatBtn.addEventListener('click', () => {
+    chatVisible = !chatVisible;
+    chatPanel.classList.toggle('chat-visible', chatVisible);
+    ciOpen.classList.toggle('hidden', chatVisible);
+    ciClose.classList.toggle('hidden', !chatVisible);
+});
+
+function sendChat() {
+    const name  = document.getElementById('c-name').value.trim();
+    const phone = document.getElementById('c-phone').value.trim();
+    const msg   = document.getElementById('c-msg').value.trim();
+    if (!name || !msg) { alert('Please enter your name and a message.'); return; }
+
+    const msgs = document.getElementById('chat-msgs');
+    const uBubble = document.createElement('div');
+    uBubble.className = 'flex gap-2 items-start justify-end';
+    uBubble.innerHTML = `<div class="bg-ink rounded-xl rounded-tr-none p-3 max-w-[85%]"><p class="text-white text-xs leading-relaxed">${msg.replace(/</g,'&lt;')}</p></div>`;
+    msgs.appendChild(uBubble);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    setTimeout(() => {
+        const rBubble = document.createElement('div');
+        rBubble.className = 'flex gap-2 items-start';
+        rBubble.innerHTML = `<div class="w-7 h-7 bg-ink rounded-full flex items-center justify-center flex-shrink-0"><span class="text-white text-[10px] font-heading">N</span></div><div class="bg-gray-50 rounded-xl rounded-tl-none p-3 max-w-[85%]"><p class="text-ink text-xs leading-relaxed">Thanks ${name.replace(/</g,'&lt;')}! We've received your message${phone ? ' and will call you at ' + phone.replace(/</g,'&lt;') : ''}. Our team will be in touch shortly!</p></div>`;
+        msgs.appendChild(rBubble);
+        msgs.scrollTop = msgs.scrollHeight;
+        document.getElementById('chat-step-a').classList.add('hidden');
+        document.getElementById('chat-step-b').classList.remove('hidden');
+    }, 900);
+}
+
+/* ──────────────────────────────────────────
+   Quote form
+────────────────────────────────────────── */
+function handleQuote(e) {
+    e.preventDefault();
+    const btn   = document.getElementById('q-btn');
+    const label = document.getElementById('q-btn-label');
+    const succ  = document.getElementById('q-success');
+    btn.disabled = true;
+    label.textContent = 'Sending…';
+    setTimeout(() => {
+        label.textContent = 'Sent ✓';
+        succ.classList.remove('hidden');
+        setTimeout(() => {
+            btn.disabled = false;
+            label.textContent = 'Send Quote Request';
+        }, 4000);
+    }, 1300);
+}
+
+/* ──────────────────────────────────────────
+   Chat greeting bubble (shows after 5s)
+────────────────────────────────────────── */
+setTimeout(() => {
+    if (chatVisible) return;
+    const bubble = document.createElement('div');
+    bubble.id = 'chat-bubble';
+    bubble.className = 'fixed bottom-24 right-6 z-50 bg-white shadow-xl border border-gray-100 px-4 py-3 text-sm text-ink max-w-[240px] cursor-pointer';
+    bubble.style.cssText = 'opacity:0; transform:translateY(8px);';
+    bubble.innerHTML = '<div class="flex items-center gap-2"><div class="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div><span class="text-xs font-body">Need help? Chat with us!</span></div>';
+    document.body.appendChild(bubble);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        bubble.style.transition = 'opacity .35s ease, transform .35s ease';
+        bubble.style.opacity = '1';
+        bubble.style.transform = 'translateY(0)';
+    }));
+    bubble.addEventListener('click', () => { bubble.remove(); chatBtn.click(); });
+    setTimeout(() => {
+        bubble.style.opacity = '0';
+        bubble.style.transform = 'translateY(8px)';
+        setTimeout(() => bubble.remove(), 400);
+    }, 8000);
+}, 5000);
+</script>
+
+</body>
+</html>
