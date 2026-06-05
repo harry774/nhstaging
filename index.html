@@ -212,7 +212,7 @@
     </div>
 
     <!-- Mobile dropdown -->
-    <div id="mobile-menu" class="lg:hidden">
+    <div id="mobile-menu" class="lg:hidden" style="background:rgba(10,10,10,.97);backdrop-filter:blur(16px);">
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
             <a href="#home"         class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Home</a>
             <a href="#services"     class="m-link text-white/80 hover:text-white text-sm tracking-[.15em] uppercase py-3 border-b border-white/8 cursor-pointer transition-colors">Services</a>
@@ -935,7 +935,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 
             <!-- Blog 1 -->
-            <article class="blog-card cursor-pointer reveal d1">
+            <article class="blog-card cursor-pointer reveal d1" data-blog-index="0">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
                     <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#DCDCDC,#BEBEBE)">
                         <span class="label text-gray-500">Home Staging Tips</span>
@@ -948,7 +948,7 @@
             </article>
 
             <!-- Blog 2 -->
-            <article class="blog-card cursor-pointer reveal d2">
+            <article class="blog-card cursor-pointer reveal d2" data-blog-index="1">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
                     <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#C8C8C8,#E0E0E0)">
                         <span class="label text-gray-500">Virtual Staging</span>
@@ -961,7 +961,7 @@
             </article>
 
             <!-- Blog 3 -->
-            <article class="blog-card cursor-pointer reveal d3">
+            <article class="blog-card cursor-pointer reveal d3" data-blog-index="2">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
                     <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E5E5E5,#CACACA)">
                         <span class="label text-gray-500">Renovation</span>
@@ -974,7 +974,7 @@
             </article>
 
             <!-- Blog 4 -->
-            <article class="blog-card cursor-pointer reveal">
+            <article class="blog-card cursor-pointer reveal" data-blog-index="3">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
                     <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#D5D5D5,#E8E8E8)">
                         <span class="label text-gray-500">Realtors Guide</span>
@@ -987,7 +987,7 @@
             </article>
 
             <!-- Blog 5 -->
-            <article class="blog-card cursor-pointer reveal d1">
+            <article class="blog-card cursor-pointer reveal d1" data-blog-index="4">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
                     <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#BABABA,#D8D8D8)">
                         <span class="label text-gray-500">AirBnB</span>
@@ -1380,6 +1380,127 @@ function handleQuote(e) {
 }
 
 /* ──────────────────────────────────────────
+   Blog modal
+────────────────────────────────────────── */
+const blogPosts = [
+    {
+        category: 'Home Staging Tips',
+        date: 'June 2025',
+        readTime: '5 min read',
+        title: '5 Home Staging Trends Taking Toronto by Storm in 2025',
+        body: `<p>Toronto's real estate market is competitive, and in 2025 the bar for presentation has never been higher. Buyers scroll through dozens of listings before stepping inside a single home — which means your staging needs to stop thumbs and open doors. Here are the five trends our team is seeing dominate the GTA right now.</p>
+
+<h3>1. Warm Earthy Palettes</h3>
+<p>Cool greys and stark whites have given way to terracotta, warm taupe, and soft clay tones. These colours make spaces feel lived-in and inviting — exactly the emotion that converts browsers into buyers. We pair them with natural linen throws and rattan accents for instant warmth.</p>
+
+<h3>2. Scandi-Minimalism with Soul</h3>
+<p>Clean lines remain popular, but buyers want personality. The trick is layering — a minimal sofa with a chunky knit cushion, a sleek shelf with one statement sculpture. Less clutter, more intention.</p>
+
+<h3>3. Biophilic Design</h3>
+<p>Large statement plants (think fiddle-leaf figs, monstera, olive trees) are non-negotiable in 2025 staging. They add life to listing photos and signal that the space is well cared for. We typically introduce 3–5 plants per home depending on size.</p>
+
+<h3>4. Statement Lighting</h3>
+<p>Builder-grade ceiling fixtures are swapped for sculptural pendants and arc floor lamps. Good lighting photographs beautifully and elevates even modest rooms from "fine" to "feature."</p>
+
+<h3>5. Curved Furniture</h3>
+<p>Straight edges are out; organic silhouettes are in. Curved sofas and rounded side tables soften living areas and photograph with an editorial quality that flat-edged pieces simply can't match.</p>
+
+<p>Ready to transform your listing? <strong>Contact NH Staging today</strong> for a free consultation and discover which trends will work best for your property.</p>`
+    },
+    {
+        category: 'Virtual Staging',
+        date: 'May 2025',
+        readTime: '4 min read',
+        title: 'How Virtual Staging Helps Your Home Sell 40% Faster',
+        body: `<p>An empty room is a buyer's worst enemy. Without furniture for scale and warmth, spaces look smaller, colder, and harder to imagine living in. Virtual staging solves this at a fraction of the cost of physical staging — and the results speak for themselves.</p>
+
+<h3>What Is Virtual Staging?</h3>
+<p>Virtual staging uses 3D rendering software to digitally place photorealistic furniture, rugs, art, and accessories into photos of empty or outdated rooms. The final images are indistinguishable from a professionally furnished space — and MLS-ready in as little as 48 hours.</p>
+
+<h3>The Numbers Don't Lie</h3>
+<p>Listings with virtually staged photos receive up to 40% more online views than vacant-room photos. More views mean more showings, and more showings create competition — which drives price. Our clients consistently report faster accepted offers after switching to virtual staging.</p>
+
+<h3>When Virtual Staging Makes Sense</h3>
+<ul>
+<li>The property is vacant and physical staging isn't in the budget</li>
+<li>You need MLS-ready photos within 48 hours</li>
+<li>You want to present multiple style options to appeal to different buyer demographics</li>
+<li>The home is already furnished but outdated, and you need a "refreshed" look for photography</li>
+</ul>
+
+<h3>Our Process</h3>
+<p>Send us your room photos. We select furniture and décor to match your target buyer profile, render the scene in high resolution, and deliver final images ready to upload to MLS — all within 48 hours. Starting from just $199 per room.</p>
+
+<p><strong>Book your virtual staging session today</strong> and watch your listing engagement soar.</p>`
+    },
+    {
+        category: 'Renovation',
+        date: 'May 2025',
+        readTime: '6 min read',
+        title: 'Why Renovation Without Demolition is the Smartest Choice',
+        body: `<p>The word "renovation" used to mean one thing: dust, disruption, and a budget that quickly spirals out of control. But there's a smarter approach that delivers the same visual transformation at a fraction of the cost — and without tearing down a single wall.</p>
+
+<h3>The Myth of Demolition</h3>
+<p>Most homeowners assume they need a full gut renovation to meaningfully change how a space looks and feels. They budget for contractors, permits, and weeks of downtime. In reality, 80% of a room's character comes from its surface elements — furniture, colour, texture, and accessories — not its bones.</p>
+
+<h3>What We Change Instead</h3>
+<p><strong>Accent Furniture:</strong> A new sofa, side table, or statement chair can redefine an entire room's mood. We shop for pieces that balance proportion, colour, and style to create a cohesive look.</p>
+<p><strong>Wallpaper & Paint:</strong> One feature wall with a bold wallpaper or a fresh coat of paint in a carefully chosen tone transforms a room instantly. This is one of the highest-ROI changes you can make.</p>
+<p><strong>Wall Art & Mirrors:</strong> Art anchors a room and gives it personality. Mirrors add light and the illusion of space. We curate pieces that complement the home's existing architecture.</p>
+<p><strong>Curtains & Textiles:</strong> Floor-to-ceiling curtains make ceilings look taller. The right rug defines zones in open-plan spaces. Cushions and throws add warmth in listing photos and open houses.</p>
+
+<h3>The Cost Difference</h3>
+<p>A traditional kitchen renovation can cost $30,000–$80,000+ and takes weeks. A no-demolition refresh — new cabinet hardware, a tile backsplash peel-and-stick, fresh paint, and updated lighting — achieves a similar visual impact for under $3,000, often in a single weekend.</p>
+
+<p><strong>Book a free consultation</strong> and we'll show you exactly which changes will have the biggest impact on your home's value.</p>`
+    },
+    {
+        category: 'Realtors Guide',
+        date: 'April 2025',
+        readTime: '4 min read',
+        title: 'Why Every Realtor in Toronto Should Partner with a Staging Team',
+        body: `<p>In a market as competitive as Toronto's GTA, the difference between a listing that sits and one that sells in a weekend often comes down to presentation. Realtors who partner with a professional staging team don't just get better photos — they build a reputation for results.</p>
+
+<h3>The ROI of Staging for Realtors</h3>
+<p>Staged listings receive on average 3× more online views than unstaged ones. That translates directly into more showings — and more showings create the urgency that drives multiple offers. Homes staged by NH typically sell 38% faster than the neighbourhood average.</p>
+
+<h3>What a Staging Partnership Looks Like</h3>
+<p>We work directly with your sellers — you make the introduction and we handle the rest. From the initial walk-through and mood board consultation to furniture placement and final styling on photo day, our team manages the entire process. You show up to photography with a property that's ready to impress.</p>
+
+<h3>Virtual Staging for Every Listing Budget</h3>
+<p>Not every seller has the budget for full physical staging. Our virtual staging service — starting at $199 — gives every listing professional-quality MLS photos, regardless of whether the property is furnished or vacant. This levels the playing field and makes every listing look premium.</p>
+
+<h3>Preferred Realtor Programme</h3>
+<p>We offer preferred pricing and priority scheduling for realtors who work with us regularly. As a staging partner, you also get a dedicated point of contact, flexible booking windows, and a team that understands the pace of real estate transactions.</p>
+
+<p><strong>Contact us today</strong> to discuss a staging partnership that gives your listings a consistent competitive edge.</p>`
+    },
+    {
+        category: 'AirBnB',
+        date: 'April 2025',
+        readTime: '5 min read',
+        title: 'Staging Your AirBnB: How to Increase Bookings by 30%',
+        body: `<p>AirBnB guests make booking decisions in seconds, based almost entirely on photos. A well-staged AirBnB doesn't just look better — it commands higher nightly rates, earns better reviews, and fills up the calendar. Here's what our team focuses on when staging short-term rental properties.</p>
+
+<h3>First Impressions Start Online</h3>
+<p>Your listing thumbnail is competing against hundreds of others. A hero shot of a beautifully staged living room — with layered textiles, ambient lighting, and thoughtful accessories — stops the scroll. We design AirBnB spaces with photography in mind from the start.</p>
+
+<h3>Comfort Sells</h3>
+<p>Guests want to imagine themselves relaxing, not just sleeping. Plush throw pillows, quality bedding, a well-arranged reading nook, or a styled kitchen counter communicates care and quality. These details are exactly what drives 5-star reviews like "felt like home immediately."</p>
+
+<h3>Key Areas We Focus On</h3>
+<p><strong>Bedroom:</strong> Hotel-quality bedding, blackout curtains, and layered pillows. A bedside lamp on each side. One piece of art that anchors the room.</p>
+<p><strong>Living Area:</strong> A focal point (fireplace, TV unit, or feature wall), comfortable seating, a statement rug, and enough plants to add life without clutter.</p>
+<p><strong>Kitchen & Dining:</strong> A styled dining table (even a simple centrepiece), clear countertops with one or two attractive appliances, and coordinated dishware visible through cabinet glass.</p>
+
+<h3>The Return on Investment</h3>
+<p>One of our AirBnB clients in Toronto's Annex neighbourhood saw bookings increase by 40% within 60 days of a staging refresh, and their average nightly rate went up by $35. The staging paid for itself within two months.</p>
+
+<p><strong>Book a free consultation</strong> and let's design an AirBnB space that guests can't wait to book.</p>`
+    }
+];
+
+/* ──────────────────────────────────────────
    Chat greeting bubble (shows after 5s)
 ────────────────────────────────────────── */
 setTimeout(() => {
@@ -1402,7 +1523,62 @@ setTimeout(() => {
         setTimeout(() => bubble.remove(), 400);
     }, 8000);
 }, 5000);
+/* Blog card clicks — wired up after DOM ready */
+function closeBlogModal() {
+    document.getElementById('blog-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('blog-modal');
+
+    document.querySelectorAll('[data-blog-index]').forEach(function(card) {
+        card.addEventListener('click', function() {
+            var post = blogPosts[parseInt(card.dataset.blogIndex)];
+            document.getElementById('blog-modal-category').textContent = post.category + ' · ' + post.readTime + ' · ' + post.date;
+            document.getElementById('blog-modal-title').textContent = post.title;
+            document.getElementById('blog-modal-body').innerHTML = post.body;
+            modal.classList.remove('hidden');
+            modal.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    document.getElementById('blog-modal-close').addEventListener('click', closeBlogModal);
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeBlogModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBlogModal(); });
+});
 </script>
+
+<!-- Blog Modal -->
+<div id="blog-modal" class="hidden fixed inset-0 z-[100] flex items-start justify-center bg-black/70 overflow-y-auto py-12 px-4">
+    <div class="relative bg-white w-full max-w-2xl shadow-2xl">
+        <button id="blog-modal-close" aria-label="Close article"
+            style="position:absolute;top:16px;right:16px;width:36px;height:36px;border:1px solid #ddd;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div style="padding:48px 40px 48px 40px;">
+            <p id="blog-modal-category" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:16px;"></p>
+            <h2 id="blog-modal-title" style="font-family:'Cinzel',serif;font-size:1.6rem;font-weight:600;line-height:1.25;margin-bottom:24px;color:#0A0A0A;"></h2>
+            <div style="width:36px;height:1px;background:#ccc;margin-bottom:28px;"></div>
+            <div id="blog-modal-body" style="color:#6B6B6B;font-size:14px;line-height:1.8;"></div>
+            <div style="margin-top:40px;padding-top:28px;border-top:1px solid #eee;">
+                <a href="#contact" onclick="closeBlogModal()"
+                    style="display:inline-block;background:#0A0A0A;color:#fff;padding:14px 32px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:'Josefin Sans',sans-serif;text-decoration:none;cursor:pointer;">
+                    Book a Free Consultation
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+#blog-modal-body h3 { font-family:'Cinzel',serif; font-size:1rem; font-weight:600; color:#0A0A0A; margin-top:28px; margin-bottom:10px; }
+#blog-modal-body p  { margin-bottom:14px; }
+#blog-modal-body ul { padding-left:20px; margin-bottom:14px; list-style:disc; }
+#blog-modal-body li { margin-bottom:6px; }
+#blog-modal-body strong { color:#0A0A0A; font-weight:600; }
+</style>
 
 </body>
 </html>
