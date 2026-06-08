@@ -3,15 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NH Home Staging & Renovations — Professional home staging, virtual staging, and interior design services in Toronto, Ontario. Transform your property and sell faster with our expert staging solutions for realtors, home sellers, AirBnB hosts, and resale properties.">
-    <meta name="keywords" content="home staging Toronto, virtual staging Toronto, home staging realtors Toronto, AirBnB staging Toronto, home renovation Toronto resale, property staging Toronto, interior design Toronto, home staging for sale, real estate staging GTA, home stager Toronto, condo staging Toronto, house staging Toronto Ontario">
+    <meta name="description" content="NH Staging & Renovations is the best, most affordable home staging company for staging in Toronto. Expert home staging for realtors, Airbnb staging, virtual staging, and house staging decoration across Toronto & the GTA. Sell faster and for more — book a free consultation.">
+    <meta name="keywords" content="staging in Toronto, home staging Toronto, staging for realtors, home staging for realtors Toronto, staging Airbnb, Airbnb staging Toronto, decoration of house staging, house staging decoration, best staging company, best home staging company Toronto, affordable staging company, affordable home staging Toronto, virtual staging Toronto, property staging GTA, real estate staging Toronto, condo staging Toronto, home stager Toronto Ontario">
     <meta name="author" content="NH Staging & Renovations">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="NH Home Staging & Renovations | Toronto">
-    <meta property="og:description" content="Professional home staging and virtual staging services in Toronto. Sell faster, sell higher.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nhstaging.ca/">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <!-- Geo targeting (Toronto) -->
+    <meta name="geo.region" content="CA-ON">
+    <meta name="geo.placename" content="Toronto, Ontario">
+    <meta name="geo.position" content="43.6532;-79.3832">
+    <meta name="ICBM" content="43.6532, -79.3832">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Best Affordable Home Staging Company in Toronto | NH Staging & Renovations">
+    <meta property="og:description" content="Staging in Toronto for realtors, Airbnb hosts & home sellers. Home staging, virtual staging & house staging decoration that helps you sell faster, for more.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_CA">
-    <title>NH Home Staging & Renovations | Toronto, Ontario</title>
+    <meta property="og:site_name" content="NH Staging & Renovations">
+    <meta property="og:url" content="https://nhstaging.ca/">
+    <meta property="og:image" content="https://nhstaging.ca/images/portfolio/home-staging/living-room-1.webp">
+    <meta property="og:image:alt" content="Professionally staged living room in Toronto by NH Staging & Renovations">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best Affordable Home Staging Company in Toronto | NH Staging">
+    <meta name="twitter:description" content="Staging in Toronto for realtors, Airbnb hosts & home sellers. Home staging, virtual staging & house staging decoration that helps you sell faster.">
+    <meta name="twitter:image" content="https://nhstaging.ca/images/portfolio/home-staging/living-room-1.webp">
+
+    <title>Home Staging in Toronto | Best Affordable Staging Company — NH Staging & Renovations</title>
+
+    <!-- Structured data: local business for Toronto home-staging SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "NH Staging & Renovations",
+      "image": "https://nhstaging.ca/images/portfolio/home-staging/living-room-1.webp",
+      "url": "https://nhstaging.ca/",
+      "email": "info@nhstaging.ca",
+      "description": "Best affordable home staging company in Toronto. Home staging for realtors, Airbnb staging, virtual staging and house staging decoration across Toronto and the GTA.",
+      "priceRange": "$$",
+      "foundingDate": "2020",
+      "areaServed": [
+        { "@type": "City", "name": "Toronto" },
+        { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 43.6532, "longitude": -79.3832 },
+      "knowsAbout": [
+        "home staging", "staging for realtors", "Airbnb staging",
+        "virtual staging", "house staging decoration", "interior design"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Home Staging Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Staging for Realtors in Toronto" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Staging" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virtual Staging" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "House Staging Decoration & Interior Design" } }
+        ]
+      }
+    }
+    </script>
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,6 +224,55 @@
 
         /* ── Counter ── */
         @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+
+        /* ── Portfolio grid ── */
+        #portfolio-grid .portfolio-item { transition: opacity 0.45s ease; aspect-ratio: 1 / 1; }
+        #portfolio-grid .portfolio-item.portfolio-fading { opacity: 0 !important; }
+        #portfolio-grid .portfolio-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ── Moodboard tiles ── */
+        .mood-tile { overflow: hidden; cursor: pointer; position: relative; }
+        .mood-tile img { display: block; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.55s ease; }
+        .mood-tile img.mood-fading { opacity: 0; }
+        @keyframes moodKenBurns { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.07) translate(-1.5%,-1%); } }
+        .mood-tile:nth-child(1) img { animation: moodKenBurns 11s ease-in-out infinite alternate; }
+        .mood-tile:nth-child(2) img { animation: moodKenBurns 14s ease-in-out infinite alternate-reverse; animation-delay:-4s; }
+        .mood-tile:nth-child(3) img { animation: moodKenBurns 12s ease-in-out infinite alternate; animation-delay:-7s; }
+        .mood-tile:nth-child(4) img { animation: moodKenBurns 13s ease-in-out infinite alternate-reverse; animation-delay:-2s; }
+        .mood-tile:nth-child(5) img { animation: moodKenBurns 10s ease-in-out infinite alternate; animation-delay:-5s; }
+        /* Expanding clone element */
+        .mood-expand-clone {
+            position: fixed; z-index: 160; overflow: hidden; pointer-events: none;
+            transition: left 0.55s cubic-bezier(.22,1,.36,1), top 0.55s cubic-bezier(.22,1,.36,1),
+                        width 0.55s cubic-bezier(.22,1,.36,1), height 0.55s cubic-bezier(.22,1,.36,1),
+                        opacity 0.25s ease;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+        }
+        .mood-expand-clone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ── Cursor canvas ── */
+        #cursor-canvas { width: 100%; height: 100%; }
+
+        /* ── Portfolio lightbox ── */
+        #portfolio-lightbox { touch-action: none; }
+        .lb-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 48px; height: 48px; border: 1px solid rgba(255,255,255,0.28);
+            background: rgba(0,0,0,0.35); color: #fff; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s, border-color 0.2s; z-index: 10;
+        }
+        .lb-nav-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.55); }
+        #lb-close-btn {
+            position: absolute; top: 16px; right: 16px;
+            width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.28);
+            background: rgba(0,0,0,0.4); color: #fff; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; z-index: 10;
+        }
+        #lb-close-btn:hover { background: rgba(255,255,255,0.12); }
+        #lb-img { transition: opacity 0.25s ease; max-width: 92vw; max-height: 85vh; object-fit: contain; }
+        #lb-img.lb-loading { opacity: 0; }
     </style>
 </head>
 
@@ -230,6 +340,9 @@
      HERO
 ═══════════════════════════════════════════════ -->
 <section id="home" class="relative min-h-screen bg-ink flex items-center overflow-hidden">
+
+    <!-- Cursor particle canvas -->
+    <canvas id="cursor-canvas" class="absolute inset-0 pointer-events-none" style="z-index:5;"></canvas>
 
     <!-- Grid bg -->
     <div class="absolute inset-0 hero-grid-bg"></div>
@@ -331,8 +444,10 @@
             </div>
             <div class="reveal-right">
                 <div class="relative">
-                    <div class="bg-ink aspect-[4/3] flex items-end p-10">
-                        <div>
+                    <div class="aspect-[4/3] flex items-end p-10 relative overflow-hidden">
+                        <img src="images/portfolio/home-staging/living-room-4.webp" alt="Beautifully staged living room" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10"></div>
+                        <div class="relative z-10">
                             <div class="label label-light mb-3">The Outcome</div>
                             <div class="font-heading text-white text-4xl font-semibold leading-tight">Sell Faster.</div>
                             <div class="font-heading text-white text-4xl font-semibold leading-tight">Sell Higher.</div>
@@ -350,16 +465,18 @@
         <div class="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center mb-28 pt-8 border-t border-gray-200">
             <div class="order-2 lg:order-1 reveal-left">
                 <div class="relative">
-                    <div class="bg-charcoal aspect-[4/3] flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-16 h-16 border border-white/20 mx-auto mb-5 flex items-center justify-center">
+                    <div class="aspect-[4/3] flex items-center justify-center relative overflow-hidden">
+                        <img src="images/portfolio/home-staging/virtual%20staging%201.webp" alt="Virtual staging example" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-black/55"></div>
+                        <div class="relative z-10 text-center px-6">
+                            <div class="w-16 h-16 border border-white/30 mx-auto mb-5 flex items-center justify-center">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" aria-hidden="true">
                                     <rect x="2" y="3" width="20" height="14" rx="1"/>
                                     <path d="M8 21h8M12 17v4"/>
                                 </svg>
                             </div>
                             <div class="font-heading text-white text-lg">Virtual Staging</div>
-                            <div class="text-white/35 text-xs mt-1 tracking-wider">Starting from $199</div>
+                            <div class="text-white/55 text-xs mt-1 tracking-wider">Starting from $199</div>
                         </div>
                     </div>
                     <div class="absolute -top-5 -left-4 md:-left-8 bg-ink border border-white/8 p-5 w-36">
@@ -505,103 +622,17 @@
             <p class="label mb-4">Our Work</p>
             <h2 class="font-heading text-4xl md:text-5xl font-semibold">Portfolio</h2>
             <div class="flex justify-center mt-5 mb-6"><div class="divider text-ink"></div></div>
-            <p class="text-stone text-sm max-w-lg mx-auto">Stunning transformations coming soon. <br class="hidden sm:inline">We will add real project photos shortly — here's a preview of our categories.</p>
+            <p class="text-stone text-sm max-w-lg mx-auto">Real transformations across the Greater Toronto Area. Click any photo to explore.</p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            <!-- Item 1 -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d1">
-                <div class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-200 flex items-end p-5">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Living Room</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Item 2 -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d2">
-                <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-350 flex items-end p-5" style="background: linear-gradient(135deg,#DADADA,#C8C8C8)">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Bedroom</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Virtual Staging</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Item 3 — tall on mobile -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d3 col-span-2 md:col-span-1" style="aspect-ratio: 1/1">
-                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E2E2E2,#CBCBCB)">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Kitchen</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Accent Refresh</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Item 4 -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal">
-                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#CFCFCF,#DCDCDC)">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Dining Room</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Item 5 -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d1">
-                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E8E8E8,#D0D0D0)">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Home Office</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Interior Design</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Item 6 -->
-            <div class="portfolio-item relative aspect-square overflow-hidden cursor-pointer reveal d2">
-                <div class="w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#D8D8D8,#E5E5E5)">
-                    <div>
-                        <div class="font-heading text-gray-600 text-sm">Condo Suite</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Full Staging</div>
-                    </div>
-                </div>
-                <div class="p-overlay absolute inset-0 bg-ink/75 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white text-sm tracking-widest">View Project</div>
-                        <div class="w-8 h-px bg-white/40 mx-auto mt-3"></div>
-                    </div>
-                </div>
-            </div>
+        <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            <!-- Populated by JavaScript -->
         </div>
 
-        <p class="text-center text-stone text-[11px] tracking-[.2em] uppercase mt-8 reveal">Portfolio photos will be updated soon with real projects</p>
+        <div class="text-center mt-10" id="portfolio-more-wrap">
+            <button id="portfolio-show-more" onclick="portfolioShowMore()" class="btn-outline-dark px-10 py-4 text-[11px] tracking-[.18em] uppercase font-body cursor-pointer">Show More</button>
+        </div>
+
     </div>
 </section>
 
@@ -659,19 +690,22 @@
             </div>
 
             <!-- Mood board grid -->
-            <div class="grid grid-cols-3 grid-rows-3 gap-2 h-[420px] reveal-right">
-                <div class="col-span-1 row-span-1 bg-gray-300"></div>
-                <div class="col-span-2 row-span-2" style="background: linear-gradient(135deg,#E0E0E0,#C0C0C0)"></div>
-                <div class="col-span-1 row-span-1" style="background: linear-gradient(135deg,#D0D0D0,#E8E8E8)"></div>
-                <div class="col-span-2 row-span-1 border border-white/10 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="font-heading text-white/80 text-sm">Your Vision</div>
-                        <div class="text-white/30 text-xs mt-1">Brought to Life</div>
-                    </div>
+            <div class="grid grid-cols-3 grid-rows-3 gap-2 h-[480px] lg:h-[580px] reveal-right" id="moodboard-grid">
+                <div class="mood-tile col-span-1 row-span-1 overflow-hidden">
+                    <img src="images/moodboards/IMG_5490%281%29.webp" alt="Interior design moodboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
-                <div class="col-span-1 row-span-1 bg-gray-500"></div>
-                <div class="col-span-1 row-span-1" style="background:#888"></div>
-                <div class="col-span-1 row-span-1 bg-gray-200"></div>
+                <div class="mood-tile col-span-2 row-span-2 overflow-hidden">
+                    <img src="images/moodboards/IMG_5491.webp" alt="Interior design moodboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                </div>
+                <div class="mood-tile col-span-1 row-span-1 overflow-hidden">
+                    <img src="images/moodboards/IMG_5493.webp" alt="Interior design moodboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                </div>
+                <div class="mood-tile col-span-2 row-span-1 overflow-hidden">
+                    <img src="images/moodboards/IMG_5494%281%29.webp" alt="Interior design moodboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                </div>
+                <div class="mood-tile col-span-1 row-span-1 overflow-hidden">
+                    <img src="images/moodboards/IMG_5495%281%29.webp" alt="Interior design moodboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                </div>
             </div>
 
         </div>
@@ -768,7 +802,7 @@
             <!-- Interior Design -->
             <div class="pricing-card border border-gray-100 p-8 reveal d3">
                 <div class="label mb-3">Interior Design</div>
-                <div class="font-heading text-4xl font-semibold mb-1">$499<span class="text-2xl font-light text-stone">+</span></div>
+                <div class="font-heading text-4xl font-semibold mb-1">$1499<span class="text-2xl font-light text-stone">+</span></div>
                 <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">No Demolition</div>
                 <ul class="space-y-3 mb-9 text-sm text-stone">
                     <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accent furniture selection</li>
@@ -937,9 +971,7 @@
             <!-- Blog 1 -->
             <article class="blog-card cursor-pointer reveal d1" data-blog-index="0">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
-                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#DCDCDC,#BEBEBE)">
-                        <span class="label text-gray-500">Home Staging Tips</span>
-                    </div>
+                    <img src="images/blog/IMG_5496%281%29.webp" alt="Home staging tips" class="thumb-inner w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <div class="label mb-3">5 min read · June 2025</div>
                 <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">5 Home Staging Trends Taking Toronto by Storm in 2025</h3>
@@ -950,9 +982,7 @@
             <!-- Blog 2 -->
             <article class="blog-card cursor-pointer reveal d2" data-blog-index="1">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
-                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#C8C8C8,#E0E0E0)">
-                        <span class="label text-gray-500">Virtual Staging</span>
-                    </div>
+                    <img src="images/blog/IMG_5497%281%29.webp" alt="Virtual staging" class="thumb-inner w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <div class="label mb-3">4 min read · May 2025</div>
                 <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">How Virtual Staging Helps Your Home Sell 40% Faster</h3>
@@ -963,9 +993,7 @@
             <!-- Blog 3 -->
             <article class="blog-card cursor-pointer reveal d3" data-blog-index="2">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
-                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#E5E5E5,#CACACA)">
-                        <span class="label text-gray-500">Renovation</span>
-                    </div>
+                    <img src="images/blog/IMG_5498%281%29.webp" alt="Renovation without demolition" class="thumb-inner w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <div class="label mb-3">6 min read · May 2025</div>
                 <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Why Renovation Without Demolition is the Smartest Choice</h3>
@@ -976,9 +1004,7 @@
             <!-- Blog 4 -->
             <article class="blog-card cursor-pointer reveal" data-blog-index="3">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
-                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#D5D5D5,#E8E8E8)">
-                        <span class="label text-gray-500">Realtors Guide</span>
-                    </div>
+                    <img src="images/blog/IMG_5499.webp" alt="Realtor staging guide" class="thumb-inner w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <div class="label mb-3">4 min read · April 2025</div>
                 <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Why Every Realtor in Toronto Should Partner with a Staging Team</h3>
@@ -989,9 +1015,7 @@
             <!-- Blog 5 -->
             <article class="blog-card cursor-pointer reveal d1" data-blog-index="4">
                 <div class="blog-thumb aspect-video bg-gray-100 mb-6 overflow-hidden">
-                    <div class="thumb-inner w-full h-full flex items-end p-5" style="background: linear-gradient(135deg,#BABABA,#D8D8D8)">
-                        <span class="label text-gray-500">AirBnB</span>
-                    </div>
+                    <img src="images/blog/IMG_5515.webp" alt="AirBnB staging tips" class="thumb-inner w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <div class="label mb-3">5 min read · April 2025</div>
                 <h3 class="font-heading text-xl font-semibold mb-3 leading-snug">Staging Your AirBnB: How to Increase Bookings by 30%</h3>
@@ -1019,24 +1043,33 @@
                 <p class="text-white/55 text-base leading-relaxed mb-14">Fill out the form and we'll get back to you within 24 hours with a personalised quote and staging plan for your property.</p>
 
                 <div class="space-y-8">
-                    <div class="flex items-start gap-5">
-                        <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
+                    <a href="tel:+14379826367" class="group flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 group-hover:border-white/50 transition-colors flex items-center justify-center flex-shrink-0">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
                         </div>
                         <div>
                             <div class="text-white text-sm font-medium mb-1">Phone</div>
-                            <div class="text-white/45 text-sm">Provided upon contact</div>
+                            <div class="text-white/45 group-hover:text-white text-sm transition-colors">+1 (437) 982-6367</div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-5">
-                        <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
+                    </a>
+                    <a href="mailto:info@nhhomestaging.ca" class="group flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 group-hover:border-white/50 transition-colors flex items-center justify-center flex-shrink-0">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </div>
                         <div>
                             <div class="text-white text-sm font-medium mb-1">Email</div>
-                            <div class="text-white/45 text-sm">info@nhstaging.ca</div>
+                            <div class="text-white/45 group-hover:text-white text-sm transition-colors">info@nhhomestaging.ca</div>
                         </div>
-                    </div>
+                    </a>
+                    <a href="https://www.instagram.com/nhhomestaging" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-5">
+                        <div class="w-11 h-11 border border-white/15 group-hover:border-white/50 transition-colors flex items-center justify-center flex-shrink-0">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium mb-1">Instagram</div>
+                            <div class="text-white/45 group-hover:text-white text-sm transition-colors">@nhhomestaging</div>
+                        </div>
+                    </a>
                     <div class="flex items-start gap-5">
                         <div class="w-11 h-11 border border-white/15 flex items-center justify-center flex-shrink-0">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1529,9 +1562,467 @@ function closeBlogModal() {
     document.body.style.overflow = '';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById('blog-modal');
+/* ──────────────────────────────────────────
+   Portfolio Gallery
+────────────────────────────────────────── */
+var portfolioImages = [
+    'images/portfolio/home-staging/living-room-1.webp',
+    'images/portfolio/home-staging/living-room-2.webp',
+    'images/portfolio/home-staging/living-room-3.webp',
+    'images/portfolio/home-staging/living-room-4.webp',
+    'images/portfolio/home-staging/living-room-5.webp',
+    'images/portfolio/home-staging/living-room-6.webp',
+    'images/portfolio/home-staging/living-room-7.webp',
+    'images/portfolio/home-staging/living-room-8.webp',
+    'images/portfolio/home-staging/living-room--9.webp',
+    'images/portfolio/home-staging/living-room-10.webp',
+    'images/portfolio/home-staging/living-room-11.webp',
+    'images/portfolio/home-staging/living-room-12.webp',
+    'images/portfolio/home-staging/living-room-13.webp',
+    'images/portfolio/home-staging/living-room-14.webp',
+    'images/portfolio/home-staging/living-room-15.webp',
+    'images/portfolio/home-staging/living-room-16.webp',
+    'images/portfolio/home-staging/living-room-17.webp',
+    'images/portfolio/home-staging/bedroom-1.webp',
+    'images/portfolio/home-staging/bedroom-2.webp',
+    'images/portfolio/home-staging/bedroom--3.webp',
+    'images/portfolio/home-staging/bedroom-5.webp',
+    'images/portfolio/home-staging/bedroom-6.webp',
+    'images/portfolio/home-staging/dining-room-1.webp',
+    'images/portfolio/home-staging/dining-room--2.webp',
+    'images/portfolio/home-staging/dining-room-3.webp',
+    'images/portfolio/home-staging/dining-room-4.webp',
+    'images/portfolio/home-staging/dining-room-5.webp',
+    'images/portfolio/home-staging/kitchen-1.webp',
+    'images/portfolio/home-staging/kitchen-2.webp',
+    'images/portfolio/home-staging/condo-suite-1.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-2-p.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-4-p.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-5-p.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-6-p.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-7-p.webp',
+    'images/portfolio/home-staging/1342-victoria-park-avenue-toronto-E13249888-17-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-7-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-9-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-11-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-12-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-18-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-19-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-24-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-25-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-27-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-30-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-32-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-33-p.webp',
+    'images/portfolio/home-staging/1806-278-bloor-street-east-toronto-C13223846-34-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-7-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-8-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-16-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-17-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-18-p.webp',
+    'images/portfolio/home-staging/2005-15-baseball-place-toronto-E13248234-19-p.webp',
+    'images/portfolio/home-staging/2503-225-sackville-street-toronto-C13411050-13-p.webp',
+    'images/portfolio/home-staging/2503-225-sackville-street-toronto-C13411050-15-p.webp',
+    'images/portfolio/home-staging/1803-195-redpath-avenue-toronto-C13413458-5-p.webp',
+    'images/portfolio/home-staging/406-233-carlaw-avenue-toronto-E13413020-13-p.webp',
+    'images/portfolio/home-staging/107-152-annette-street-toronto-W13410330-18-p.webp',
+    'images/portfolio/home-staging/virtual%20staging%204.webp',
+    'images/portfolio/home-staging/virtual%20staging%205.webp',
+];
 
+var portfolioInitCount = 12;
+var portfolioShowingAll = false;
+var portfolioLightboxIdx = 0;
+var portfolioShuffled = portfolioImages.slice().sort(function() { return Math.random() - 0.5; });
+
+function createPortfolioItem(src) {
+    var div = document.createElement('div');
+    div.className = 'portfolio-item relative overflow-hidden cursor-pointer';
+    div.setAttribute('data-src', src);
+    var img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Home staging photo';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.width = 400;
+    img.height = 400;
+    var overlay = document.createElement('div');
+    overlay.className = 'p-overlay absolute inset-0 bg-ink/60 flex items-center justify-center';
+    overlay.innerHTML = '<div class="font-heading text-white text-xs tracking-widest uppercase">View</div>';
+    div.appendChild(img);
+    div.appendChild(overlay);
+    div.addEventListener('click', function() {
+        var s = div.getAttribute('data-src');
+        var idx = portfolioImages.indexOf(s);
+        openPortfolioLightbox(idx >= 0 ? idx : 0);
+    });
+    return div;
+}
+
+function portfolioInit() {
+    var grid = document.getElementById('portfolio-grid');
+    if (!grid) return;
+    for (var i = 0; i < portfolioInitCount && i < portfolioShuffled.length; i++) {
+        grid.appendChild(createPortfolioItem(portfolioShuffled[i]));
+    }
+}
+
+function portfolioShowMore() {
+    var grid = document.getElementById('portfolio-grid');
+    var current = grid.querySelectorAll('.portfolio-item').length;
+    var frag = document.createDocumentFragment();
+    for (var i = current; i < portfolioShuffled.length; i++) {
+        var item = createPortfolioItem(portfolioShuffled[i]);
+        item.style.opacity = '0';
+        frag.appendChild(item);
+    }
+    grid.appendChild(frag);
+    portfolioShowingAll = true;
+    var newItems = Array.prototype.slice.call(grid.querySelectorAll('.portfolio-item')).slice(current);
+    newItems.forEach(function(el, i) {
+        setTimeout(function() {
+            el.style.transition = 'opacity 0.5s ease';
+            el.style.opacity = '1';
+        }, i * 30);
+    });
+    var wrap = document.getElementById('portfolio-more-wrap');
+    if (wrap) wrap.style.display = 'none';
+}
+
+/* Shuffle: every 9s swap ~55% of visible images, preloading next batch */
+var portfolioNextBatch = []; // preloaded images for next shuffle
+
+function preloadNextBatch(visibleSrcs) {
+    var available = portfolioImages.filter(function(s) { return visibleSrcs.indexOf(s) === -1; });
+    available.sort(function() { return Math.random() - 0.5; });
+    portfolioNextBatch = [];
+    var preloadCount = Math.ceil(visibleSrcs.length * 0.6);
+    for (var i = 0; i < preloadCount && i < available.length; i++) {
+        var preImg = new Image();
+        preImg.src = available[i];
+        portfolioNextBatch.push(available[i]);
+    }
+}
+
+setInterval(function() {
+    if (portfolioShowingAll) return;
+    var grid = document.getElementById('portfolio-grid');
+    if (!grid) return;
+    var items = Array.prototype.slice.call(grid.querySelectorAll('.portfolio-item'));
+    if (items.length < 4) return;
+
+    var visibleSrcs = items.map(function(el) { return el.getAttribute('data-src'); });
+
+    // Use preloaded batch if available, otherwise pick fresh
+    var swapSrcs = portfolioNextBatch.length > 0
+        ? portfolioNextBatch.slice()
+        : portfolioImages.filter(function(s) { return visibleSrcs.indexOf(s) === -1; }).sort(function() { return Math.random() - 0.5; });
+
+    var swapCount = Math.ceil(items.length * 0.55); // 55% of visible
+    if (swapSrcs.length < swapCount) swapCount = swapSrcs.length;
+    if (swapCount === 0) return;
+
+    // Pick random item indices to replace
+    var allIdx = items.map(function(_, i) { return i; }).sort(function() { return Math.random() - 0.5; });
+    var toSwap = allIdx.slice(0, swapCount);
+
+    // Fade all swapped items out simultaneously
+    toSwap.forEach(function(idx) { items[idx].classList.add('portfolio-fading'); });
+
+    setTimeout(function() {
+        toSwap.forEach(function(idx, i) {
+            if (i >= swapSrcs.length) return;
+            var item = items[idx];
+            var newSrc = swapSrcs[i];
+            item.querySelector('img').src = newSrc;
+            item.setAttribute('data-src', newSrc);
+            item.classList.remove('portfolio-fading');
+            visibleSrcs[idx] = newSrc;
+        });
+        // Preload the NEXT batch right after swapping
+        preloadNextBatch(visibleSrcs);
+    }, 500);
+}, 9000);
+
+// Preload first batch immediately after init
+setTimeout(function() {
+    var grid = document.getElementById('portfolio-grid');
+    if (!grid) return;
+    var visibleSrcs = Array.prototype.slice.call(grid.querySelectorAll('.portfolio-item')).map(function(el) { return el.getAttribute('data-src'); });
+    preloadNextBatch(visibleSrcs);
+}, 2000);
+
+/* ──────────────────────────────────────────
+   Moodboard shuffle
+────────────────────────────────────────── */
+var moodboardImages = [
+    'images/moodboards/IMG_5490%281%29.webp',
+    'images/moodboards/IMG_5491.webp',
+    'images/moodboards/IMG_5493.webp',
+    'images/moodboards/IMG_5494%281%29.webp',
+    'images/moodboards/IMG_5495%281%29.webp',
+    'images/moodboards/IMG_5505%281%29.webp',
+    'images/moodboards/IMG_5506%281%29.webp',
+    'images/moodboards/IMG_5508%281%29.webp',
+    'images/moodboards/IMG_5509%281%29.webp'
+];
+var moodSlots = [
+    'images/moodboards/IMG_5490%281%29.webp',
+    'images/moodboards/IMG_5491.webp',
+    'images/moodboards/IMG_5493.webp',
+    'images/moodboards/IMG_5494%281%29.webp',
+    'images/moodboards/IMG_5495%281%29.webp'
+];
+
+setInterval(function() {
+    var tiles = document.querySelectorAll('.mood-tile img');
+    if (!tiles.length) return;
+    var tileIdx = Math.floor(Math.random() * tiles.length);
+    var available = moodboardImages.filter(function(s) { return moodSlots.indexOf(s) === -1; });
+    if (!available.length) available = moodboardImages.filter(function(s) { return s !== moodSlots[tileIdx]; });
+    if (!available.length) return;
+    var newSrc = available[Math.floor(Math.random() * available.length)];
+    var tile = tiles[tileIdx];
+    tile.classList.add('mood-fading');
+    setTimeout(function() {
+        moodSlots[tileIdx] = newSrc;
+        tile.src = newSrc;
+        tile.classList.remove('mood-fading');
+    }, 560);
+}, 4500);
+
+/* ──────────────────────────────────────────
+   Portfolio lightbox
+────────────────────────────────────────── */
+function openPortfolioLightbox(idx) {
+    portfolioLightboxIdx = idx;
+    updatePortfolioLightbox();
+    document.getElementById('portfolio-lightbox').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePortfolioLightbox() {
+    document.getElementById('portfolio-lightbox').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+function updatePortfolioLightbox() {
+    var img = document.getElementById('lb-img');
+    img.classList.add('lb-loading');
+    img.src = portfolioImages[portfolioLightboxIdx];
+    img.onload = function() { img.classList.remove('lb-loading'); };
+    img.onerror = function() { img.classList.remove('lb-loading'); };
+    document.getElementById('lb-counter').textContent = (portfolioLightboxIdx + 1) + ' / ' + portfolioImages.length;
+}
+
+function lbPrev() {
+    portfolioLightboxIdx = (portfolioLightboxIdx - 1 + portfolioImages.length) % portfolioImages.length;
+    updatePortfolioLightbox();
+}
+
+function lbNext() {
+    portfolioLightboxIdx = (portfolioLightboxIdx + 1) % portfolioImages.length;
+    updatePortfolioLightbox();
+}
+
+/* ──────────────────────────────────────────
+   Cursor particle effect (hero section)
+────────────────────────────────────────── */
+(function() {
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    var canvas = document.getElementById('cursor-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var pts = [];
+    var heroEl = document.getElementById('home');
+
+    function resize() {
+        canvas.width = heroEl.offsetWidth;
+        canvas.height = heroEl.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    heroEl.addEventListener('mousemove', function(e) {
+        var rect = heroEl.getBoundingClientRect();
+        var mx = e.clientX - rect.left;
+        var my = e.clientY - rect.top;
+        for (var i = 0; i < 4; i++) {
+            if (pts.length > 260) break;
+            var gold = Math.random() > 0.65;
+            pts.push({
+                x: mx + (Math.random() - 0.5) * 12,
+                y: my + (Math.random() - 0.5) * 12,
+                vx: (Math.random() - 0.5) * 0.7,
+                vy: -(Math.random() * 0.9 + 0.25),
+                r: Math.random() * 1.9 + 0.3,
+                a: Math.random() * 0.55 + 0.25,
+                decay: Math.random() * 0.013 + 0.007,
+                gold: gold
+            });
+        }
+    });
+
+    /* Click burst */
+    heroEl.addEventListener('click', function(e) {
+        var rect = heroEl.getBoundingClientRect();
+        var mx = e.clientX - rect.left;
+        var my = e.clientY - rect.top;
+        for (var i = 0; i < 18; i++) {
+            var angle = (i / 18) * Math.PI * 2;
+            var spd = Math.random() * 2 + 0.8;
+            pts.push({
+                x: mx, y: my,
+                vx: Math.cos(angle) * spd,
+                vy: Math.sin(angle) * spd - 0.5,
+                r: Math.random() * 2 + 0.5,
+                a: 0.8,
+                decay: 0.018,
+                gold: Math.random() > 0.4
+            });
+        }
+    });
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pts = pts.filter(function(p) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.025;
+            p.a -= p.decay;
+            if (p.a <= 0) return false;
+            var cr = p.gold ? '212,175,55' : '255,255,255';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(' + cr + ',' + p.a + ')';
+            ctx.fill();
+            if (p.r > 1.1) {
+                var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
+                g.addColorStop(0, 'rgba(' + cr + ',' + (p.a * 0.18) + ')');
+                g.addColorStop(1, 'rgba(' + cr + ',0)');
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = g;
+                ctx.fill();
+            }
+            return true;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ──────────────────────────────────────────
+   Moodboard tile expand-on-hover
+────────────────────────────────────────── */
+(function() {
+    var grid = document.getElementById('moodboard-grid');
+    if (!grid) return;
+
+    var clone = null;       // currently expanding/expanded element
+    var collapseTimer = null;
+    var activeTile = null;
+
+    /* Remove EVERY clone in the DOM — never trust a single reference, since
+       rapid hover cycles can leave orphaned fixed-position elements behind. */
+    function purgeClones() {
+        clearTimeout(collapseTimer);
+        clone = null;
+        activeTile = null;
+        document.querySelectorAll('.mood-expand-clone').forEach(function(el) {
+            if (el.parentNode) el.parentNode.removeChild(el);
+        });
+    }
+
+    function createClone(tile) {
+        var img = tile.querySelector('img');
+        if (!img) return;
+        purgeClones(); // clear any stragglers before spawning a fresh one
+        var tileRect = tile.getBoundingClientRect();
+        var gridRect = grid.getBoundingClientRect();
+
+        var el = document.createElement('div');
+        el.className = 'mood-expand-clone';
+        el.style.left   = tileRect.left   + 'px';
+        el.style.top    = tileRect.top    + 'px';
+        el.style.width  = tileRect.width  + 'px';
+        el.style.height = tileRect.height + 'px';
+        el.style.opacity = '1';
+
+        var ci = document.createElement('img');
+        ci.src = img.src; ci.alt = img.alt;
+        el.appendChild(ci);
+        document.body.appendChild(el);
+        clone = el;
+
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                if (clone !== el) return; // aborted
+                el.style.left   = gridRect.left   + 'px';
+                el.style.top    = gridRect.top    + 'px';
+                el.style.width  = gridRect.width  + 'px';
+                el.style.height = gridRect.height + 'px';
+            });
+        });
+    }
+
+    function collapseClone(tile) {
+        if (!clone) return;
+        var el = clone;
+        clone = null;
+        activeTile = null;
+        var tileRect = tile.getBoundingClientRect();
+        el.style.left   = tileRect.left   + 'px';
+        el.style.top    = tileRect.top    + 'px';
+        el.style.width  = tileRect.width  + 'px';
+        el.style.height = tileRect.height + 'px';
+
+        clearTimeout(collapseTimer);
+        collapseTimer = setTimeout(function() {
+            el.style.opacity = '0';
+            setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 260);
+        }, 420);
+    }
+
+    /* Scroll: element is position:fixed so it sticks — kill it immediately */
+    window.addEventListener('scroll', function() {
+        purgeClones();
+    }, { passive: true });
+
+    /* Cursor leaving the whole grid */
+    grid.addEventListener('mouseleave', function(e) {
+        var rel = e.relatedTarget;
+        if (rel && rel.closest && rel.closest('#moodboard-grid')) return;
+        activeTile = null;
+        collapseClone(document.querySelector('.mood-tile'));
+    });
+
+    document.querySelectorAll('.mood-tile').forEach(function(tile) {
+        tile.addEventListener('mouseenter', function() {
+            clearTimeout(collapseTimer);
+            if (clone && activeTile !== tile) {
+                var img = tile.querySelector('img');
+                if (img) clone.querySelector('img').src = img.src;
+                activeTile = tile;
+                return;
+            }
+            if (clone) return;
+            activeTile = tile;
+            createClone(tile);
+        });
+
+        tile.addEventListener('mouseleave', function(e) {
+            var related = e.relatedTarget;
+            if (related && (related.classList.contains('mood-tile') || related.closest('.mood-tile'))) return;
+            activeTile = null;
+            collapseClone(tile);
+        });
+    });
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+    /* Blog modal */
+    var modal = document.getElementById('blog-modal');
     document.querySelectorAll('[data-blog-index]').forEach(function(card) {
         card.addEventListener('click', function() {
             var post = blogPosts[parseInt(card.dataset.blogIndex)];
@@ -1543,10 +2034,43 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
     });
-
     document.getElementById('blog-modal-close').addEventListener('click', closeBlogModal);
     modal.addEventListener('click', function(e) { if (e.target === modal) closeBlogModal(); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBlogModal(); });
+
+    /* Portfolio init */
+    portfolioInit();
+
+    /* Lightbox events */
+    document.getElementById('lb-close-btn').addEventListener('click', closePortfolioLightbox);
+    document.getElementById('lb-prev-btn').addEventListener('click', lbPrev);
+    document.getElementById('lb-next-btn').addEventListener('click', lbNext);
+    document.getElementById('portfolio-lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closePortfolioLightbox();
+    });
+
+    /* Touch swipe on lightbox */
+    var lbTouchX = null;
+    document.getElementById('portfolio-lightbox').addEventListener('touchstart', function(e) {
+        lbTouchX = e.touches[0].clientX;
+    }, { passive: true });
+    document.getElementById('portfolio-lightbox').addEventListener('touchend', function(e) {
+        if (lbTouchX === null) return;
+        var dx = e.changedTouches[0].clientX - lbTouchX;
+        if (Math.abs(dx) > 50) { dx < 0 ? lbNext() : lbPrev(); }
+        lbTouchX = null;
+    }, { passive: true });
+
+    /* Keyboard navigation */
+    document.addEventListener('keydown', function(e) {
+        var lb = document.getElementById('portfolio-lightbox');
+        if (!lb.classList.contains('hidden')) {
+            if (e.key === 'ArrowLeft') lbPrev();
+            else if (e.key === 'ArrowRight') lbNext();
+            else if (e.key === 'Escape') closePortfolioLightbox();
+            return;
+        }
+        if (e.key === 'Escape') closeBlogModal();
+    });
 });
 </script>
 
@@ -1579,6 +2103,21 @@ document.addEventListener('DOMContentLoaded', function() {
 #blog-modal-body li { margin-bottom:6px; }
 #blog-modal-body strong { color:#0A0A0A; font-weight:600; }
 </style>
+
+<!-- Portfolio Lightbox -->
+<div id="portfolio-lightbox" class="hidden fixed inset-0 z-[200] flex items-center justify-center" style="background:rgba(0,0,0,0.96);">
+    <button id="lb-close-btn" aria-label="Close lightbox">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button id="lb-prev-btn" class="lb-nav-btn" style="left:12px;" aria-label="Previous photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img id="lb-img" src="" alt="Portfolio photo">
+    <button id="lb-next-btn" class="lb-nav-btn" style="right:12px;" aria-label="Next photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div id="lb-counter" style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:.2em;font-family:'Josefin Sans',sans-serif;"></div>
+</div>
 
 </body>
 </html>
