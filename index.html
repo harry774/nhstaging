@@ -1276,6 +1276,19 @@
 ═══════════════════════════════════════════════ -->
 <script>
 /* ──────────────────────────────────────────
+   EmailJS configuration  ←  FILL THESE IN
+   Get them from https://dashboard.emailjs.com
+     • Public Key   : Account → General → Public Key
+     • Service ID   : Email Services → (your service)
+     • Template IDs : Email Templates → (each template)
+────────────────────────────────────────── */
+const EMAILJS_PUBLIC_KEY     = 'etgA90D4xK862a-C3';
+const EMAILJS_SERVICE_ID     = 'service_ttrn8ch';
+const EMAILJS_QUOTE_TEMPLATE = 'template_l1jhg6c';
+const EMAILJS_CHAT_TEMPLATE  = 'template_krdae97';
+const CONTACT_TO_EMAIL       = 'info@nhhomestaging.ca';
+
+/* ──────────────────────────────────────────
    Scroll Reveal — Intersection Observer
 ────────────────────────────────────────── */
 (function(){
@@ -1363,6 +1376,11 @@ function sendChat() {
     const msg   = document.getElementById('c-msg').value.trim();
     if (!name || !msg) { alert('Please enter your name and a message.'); return; }
 
+    const btn = document.querySelector('#chat-step-a button');
+    const prevLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
     const msgs = document.getElementById('chat-msgs');
     const uBubble = document.createElement('div');
     uBubble.className = 'flex gap-2 items-start justify-end';
@@ -1370,7 +1388,12 @@ function sendChat() {
     msgs.appendChild(uBubble);
     msgs.scrollTop = msgs.scrollHeight;
 
-    setTimeout(() => {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CHAT_TEMPLATE, {
+        from_name: name,
+        phone: phone || '—',
+        message: msg,
+        to_email: CONTACT_TO_EMAIL,
+    }).then(() => {
         const rBubble = document.createElement('div');
         rBubble.className = 'flex gap-2 items-start';
         rBubble.innerHTML = `<div class="w-7 h-7 bg-ink rounded-full flex items-center justify-center flex-shrink-0"><span class="text-white text-[10px] font-heading">N</span></div><div class="bg-gray-50 rounded-xl rounded-tl-none p-3 max-w-[85%]"><p class="text-ink text-xs leading-relaxed">Thanks ${name.replace(/</g,'&lt;')}! We've received your message${phone ? ' and will call you at ' + phone.replace(/</g,'&lt;') : ''}. Our team will be in touch shortly!</p></div>`;
@@ -1378,7 +1401,16 @@ function sendChat() {
         msgs.scrollTop = msgs.scrollHeight;
         document.getElementById('chat-step-a').classList.add('hidden');
         document.getElementById('chat-step-b').classList.remove('hidden');
-    }, 900);
+    }).catch((err) => {
+        console.error('EmailJS chat error:', err);
+        btn.disabled = false;
+        btn.textContent = prevLabel;
+        const eBubble = document.createElement('div');
+        eBubble.className = 'flex gap-2 items-start';
+        eBubble.innerHTML = `<div class="w-7 h-7 bg-ink rounded-full flex items-center justify-center flex-shrink-0"><span class="text-white text-[10px] font-heading">N</span></div><div class="bg-gray-50 rounded-xl rounded-tl-none p-3 max-w-[85%]"><p class="text-ink text-xs leading-relaxed">Sorry — the message didn't go through. Please email us directly at ${CONTACT_TO_EMAIL}.</p></div>`;
+        msgs.appendChild(eBubble);
+        msgs.scrollTop = msgs.scrollHeight;
+    });
 }
 
 /* ──────────────────────────────────────────
@@ -1386,19 +1418,45 @@ function sendChat() {
 ────────────────────────────────────────── */
 function handleQuote(e) {
     e.preventDefault();
+    const form  = document.getElementById('quote-form');
     const btn   = document.getElementById('q-btn');
     const label = document.getElementById('q-btn-label');
     const succ  = document.getElementById('q-success');
     btn.disabled = true;
     label.textContent = 'Sending…';
-    setTimeout(() => {
-        label.textContent = 'Sent ✓';
-        succ.classList.remove('hidden');
-        setTimeout(() => {
+
+    const params = {
+        from_name: `${form.fname.value.trim()} ${form.lname.value.trim()}`.trim(),
+        first_name: form.fname.value.trim(),
+        last_name: form.lname.value.trim(),
+        email: form.email.value.trim(),
+        reply_to: form.email.value.trim(),
+        phone: form.phone.value.trim() || '—',
+        property_type: form.property_type.value,
+        bedrooms: form.bedrooms.value,
+        washrooms: form.washrooms.value,
+        service: form.service.value || 'Not specified',
+        message: form.message.value.trim() || '—',
+        to_email: CONTACT_TO_EMAIL,
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_QUOTE_TEMPLATE, params)
+        .then(() => {
+            label.textContent = 'Sent ✓';
+            succ.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => {
+                btn.disabled = false;
+                label.textContent = 'Send Quote Request';
+                succ.classList.add('hidden');
+            }, 5000);
+        })
+        .catch((err) => {
+            console.error('EmailJS quote error:', err);
             btn.disabled = false;
             label.textContent = 'Send Quote Request';
-        }, 4000);
-    }, 1300);
+            alert('Sorry, something went wrong sending your request. Please email us directly at ' + CONTACT_TO_EMAIL + '.');
+        });
 }
 
 /* ──────────────────────────────────────────
@@ -2107,6 +2165,12 @@ document.addEventListener('DOMContentLoaded', function() {
     </button>
     <div id="lb-counter" style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:.2em;font-family:'Josefin Sans',sans-serif;"></div>
 </div>
+
+<!-- EmailJS — sends the Quote form & Chat widget without a backend -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+</script>
 
 </body>
 </html>
