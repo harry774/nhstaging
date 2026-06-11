@@ -1194,6 +1194,12 @@
                         <label for="q-msg" class="label label-light block mb-2">Additional Details</label>
                         <textarea id="q-msg" name="message" rows="3" class="field resize-none" placeholder="Tell us about your property, timeline, or any special requirements..."></textarea>
                     </div>
+                    <!-- Honeypot — hidden from humans, bots auto-fill it -->
+                    <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+                        <label for="q-website">Website</label>
+                        <input type="text" id="q-website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div id="q-captcha" class="hidden mb-6"></div>
                     <button type="submit" id="q-btn" class="btn-dark w-full py-4 text-[11px] tracking-[.2em] uppercase font-body cursor-pointer">
                         <span id="q-btn-label">Send Quote Request</span>
                     </button>
@@ -1345,6 +1351,42 @@ const EMAILJS_CHAT_TEMPLATE  = 'template_krdae97';
 const CONTACT_TO_EMAIL       = 'info@nhhomestaging.ca';
 
 /* ──────────────────────────────────────────
+   Anti-spam configuration
+   1. Create a reCAPTCHA v2 ("I'm not a robot" checkbox) site at
+      https://www.google.com/recaptcha/admin/create and paste the
+      SITE key below.
+   2. In the EmailJS dashboard, open the quote template → Settings →
+      enable "reCAPTCHA" and paste the SECRET key there. EmailJS then
+      rejects any request without a valid captcha token — including
+      bots calling the API directly.
+   While the site key below is empty, the captcha is skipped and the
+   form behaves as before.
+────────────────────────────────────────── */
+const RECAPTCHA_SITE_KEY = '6LdglRgtAAAAAA6iK9zKX77pJPdrW7_sDNZu2RUt';
+
+/* Client-side rate limit: 1 send per minute, max 3 per hour, per send path. */
+const SEND_COOLDOWN_MS = 60 * 1000;
+const SEND_MAX_PER_HOUR = 3;
+
+function sendHistory(key) {
+    let hist = [];
+    try { hist = JSON.parse(localStorage.getItem('send_' + key)) || []; } catch (e) {}
+    const now = Date.now();
+    return hist.filter(t => now - t < 60 * 60 * 1000);
+}
+function canSend(key) {
+    const hist = sendHistory(key);
+    if (hist.length >= SEND_MAX_PER_HOUR) return false;
+    if (hist.length && Date.now() - hist[hist.length - 1] < SEND_COOLDOWN_MS) return false;
+    return true;
+}
+function recordSend(key) {
+    const hist = sendHistory(key);
+    hist.push(Date.now());
+    try { localStorage.setItem('send_' + key, JSON.stringify(hist)); } catch (e) {}
+}
+
+/* ──────────────────────────────────────────
    Scroll Reveal — Intersection Observer
 ────────────────────────────────────────── */
 (function(){
@@ -1435,6 +1477,11 @@ function sendChat() {
     const msg   = document.getElementById('c-msg').value.trim();
     const cErr  = document.getElementById('c-error');
     if (!name || !msg) { cErr.classList.remove('hidden'); return; }
+    if (!canSend('chat')) {
+        cErr.textContent = 'You’ve recently sent a message. Please wait a little before sending another.';
+        cErr.classList.remove('hidden');
+        return;
+    }
     cErr.classList.add('hidden');
 
     const btn = document.querySelector('#chat-step-a button');
@@ -1455,6 +1502,7 @@ function sendChat() {
         message: msg,
         to_email: CONTACT_TO_EMAIL,
     }).then(() => {
+        recordSend('chat');
         const rBubble = document.createElement('div');
         rBubble.className = 'flex gap-2 items-start';
         rBubble.innerHTML = `<div class="w-7 h-7 bg-ink rounded-full flex items-center justify-center flex-shrink-0"><span class="text-white text-[10px] font-heading">N</span></div><div class="bg-gray-50 rounded-xl rounded-tl-none p-3 max-w-[85%]"><p class="text-ink text-xs leading-relaxed">Thanks ${name.replace(/</g,'&lt;')}! We've received your message${phone ? ' and will call you at ' + phone.replace(/</g,'&lt;') : ''}. Our team will be in touch shortly!</p></div>`;
@@ -1477,6 +1525,13 @@ function sendChat() {
 /* ──────────────────────────────────────────
    Quote form
 ────────────────────────────────────────── */
+const QUOTE_ERR_DEFAULT = 'Sorry — something went wrong. Please email us directly at info@nhhomestaging.ca.';
+
+function showQuoteError(errEl, msg) {
+    errEl.textContent = msg;
+    errEl.classList.remove('hidden');
+}
+
 function handleQuote(e) {
     e.preventDefault();
     const form  = document.getElementById('quote-form');
@@ -1485,6 +1540,43 @@ function handleQuote(e) {
     const succ  = document.getElementById('q-success');
     const errEl = document.getElementById('q-error');
     errEl.classList.add('hidden');
+
+    /* Honeypot: a hidden field humans never see. If it's filled, a bot
+       did it — pretend the send worked so it doesn't retry. */
+    if (form.website.value) {
+        succ.classList.remove('hidden');
+        form.reset();
+        setTimeout(() => succ.classList.add('hidden'), 5000);
+        return;
+    }
+
+    /* Basic validation — required fields and a sane email shape. */
+    if (!form.fname.value.trim() || !form.lname.value.trim() ||
+        !form.property_type.value || !form.bedrooms.value || !form.washrooms.value) {
+        showQuoteError(errEl, 'Please fill in all required fields.');
+        return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.value.trim())) {
+        showQuoteError(errEl, 'Please enter a valid email address.');
+        return;
+    }
+
+    /* Rate limit: 1 per minute, 3 per hour from this browser. */
+    if (!canSend('quote')) {
+        showQuoteError(errEl, 'You’ve recently sent a request. Please wait a little before sending another.');
+        return;
+    }
+
+    /* Captcha: required whenever a site key is configured. */
+    let captchaToken = '';
+    if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+        captchaToken = grecaptcha.getResponse(window.qCaptchaWidgetId);
+        if (!captchaToken) {
+            showQuoteError(errEl, 'Please confirm you’re not a robot.');
+            return;
+        }
+    }
+
     btn.disabled = true;
     label.textContent = 'Sending…';
 
@@ -1502,12 +1594,15 @@ function handleQuote(e) {
         message: form.message.value.trim() || '—',
         to_email: CONTACT_TO_EMAIL,
     };
+    if (captchaToken) params['g-recaptcha-response'] = captchaToken;
 
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_QUOTE_TEMPLATE, params)
         .then(() => {
+            recordSend('quote');
             label.textContent = 'Sent';
             succ.classList.remove('hidden');
             form.reset();
+            if (RECAPTCHA_SITE_KEY && window.grecaptcha) grecaptcha.reset(window.qCaptchaWidgetId);
             setTimeout(() => {
                 btn.disabled = false;
                 label.textContent = 'Send Quote Request';
@@ -1518,7 +1613,8 @@ function handleQuote(e) {
             console.error('EmailJS quote error:', err);
             btn.disabled = false;
             label.textContent = 'Send Quote Request';
-            errEl.classList.remove('hidden');
+            if (RECAPTCHA_SITE_KEY && window.grecaptcha) grecaptcha.reset(window.qCaptchaWidgetId);
+            showQuoteError(errEl, QUOTE_ERR_DEFAULT);
         });
 }
 
@@ -2280,6 +2376,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- EmailJS — sends the Quote form & Chat widget without a backend -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- reCAPTCHA v2 — loaded only when RECAPTCHA_SITE_KEY is set -->
+<script>
+(function(){
+    if (!RECAPTCHA_SITE_KEY) return;
+    window.onRecaptchaLoad = function () {
+        const el = document.getElementById('q-captcha');
+        el.classList.remove('hidden');
+        window.qCaptchaWidgetId = grecaptcha.render(el, {
+            sitekey: RECAPTCHA_SITE_KEY,
+            theme: 'dark',
+        });
+    };
+    const s = document.createElement('script');
+    s.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+})();
+</script>
 <script>
     if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 </script>
