@@ -94,6 +94,10 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .right-8 { right: 2rem; }
+        .price-tag { white-space: nowrap; font-size: 9px; padding: 4px 8px; letter-spacing: .08em; }
+        .price-tag.left-8 { left: .75rem; }
+        .price-tag.right-8 { right: .75rem; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
         body { font-family: 'Josefin Sans', sans-serif; background: #FAFAF8; color: #0A0A0A; overflow-x: hidden; }
 
@@ -516,7 +520,7 @@
                                 </svg>
                             </div>
                             <div class="font-heading text-white text-lg">Virtual Staging</div>
-                            <div class="text-white/55 text-xs mt-1 tracking-wider">Starting from $199</div>
+                            <div class="text-white/55 text-xs mt-1 tracking-wider">Starting from $299</div>
                         </div>
                     </div>
                     <div class="absolute -top-5 -left-4 md:-left-8 bg-ink border border-white/8 p-5 w-36">
@@ -766,69 +770,42 @@
             <p class="text-stone text-sm max-w-lg mx-auto">Choose the package that fits your property. All packages include a free first consultation.</p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            <!-- Starter -->
-            <div class="pricing-card border border-gray-100 p-8 reveal d1">
-                <div class="label mb-3">Starter</div>
-                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$499</span></div>
-                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
-                <ul class="space-y-3 mb-9 text-sm text-stone">
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Up to 2 rooms</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Furniture placement</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accessory styling</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Free consultation</li>
-                </ul>
-                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
-            </div>
-
-            <!-- Regular -->
-            <div class="pricing-card border border-gray-100 p-8 reveal d2">
-                <div class="label mb-3">Regular</div>
+            <!-- Partial Staging -->
+            <div class="pricing-card relative border border-gray-100 p-8 reveal d2">
+                <div class="price-tag absolute -top-3.5 right-8 bg-ink px-3 py-1 text-[10px] tracking-[.16em] uppercase text-white font-medium">* Limited Time Only</div>
+                <div class="label mb-3">Partial Staging</div>
                 <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$999</span></div>
                 <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
                 <ul class="space-y-3 mb-9 text-sm text-stone">
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Up to 4 rooms</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Furniture + décor</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Mood board included</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Free consultation</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Living room &amp; kitchen</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Washrooms</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Master bedroom</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Décor &amp; furniture</li>
                 </ul>
                 <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
             </div>
 
-            <!-- Extraordinary — featured -->
+            <!-- Full Staging — featured -->
             <div class="pricing-card relative bg-ink border border-ink p-8 reveal d3">
-                <div class="absolute -top-3.5 left-8 bg-white border border-gray-100 px-3 py-1 text-[10px] tracking-[.16em] uppercase text-ink font-medium">Most Popular</div>
-                <div class="label label-light mb-3">Extraordinary</div>
-                <div class="font-heading text-4xl font-semibold text-white mb-1 price-wrap"><span class="price-num">$1,499</span></div>
+                <div class="price-tag absolute -top-3.5 left-8 bg-white border border-gray-100 px-3 py-1 text-[10px] tracking-[.16em] uppercase text-ink font-medium">Most Popular</div>
+                <div class="price-tag absolute -top-3.5 right-8 bg-white border border-gray-100 px-3 py-1 text-[10px] tracking-[.16em] uppercase text-ink font-medium">* Limited Time Only</div>
+                <div class="label label-light mb-3">Full Staging</div>
+                <div class="font-heading text-4xl font-semibold text-white mb-1 price-wrap"><span class="price-num">$1,999</span></div>
                 <div class="text-white/60 text-xs mb-7 pb-7 border-b border-white/10">Staging Package</div>
                 <ul class="space-y-3 mb-9 text-sm text-white/60">
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Full home staging</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Premium furniture selection</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Mood board + shopping</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Wall art &amp; accessories</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Everything in Partial Staging</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>All bedrooms</li>
+                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0" aria-hidden="true"></span>Foyer area</li>
                 </ul>
                 <a href="#contact" class="bg-white text-ink hover:bg-gray-100 transition-colors px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
-            </div>
-
-            <!-- Luxurious -->
-            <div class="pricing-card border border-gray-100 p-8 reveal d1">
-                <div class="label mb-3">Luxurious</div>
-                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$1,999<span class="text-2xl font-light text-stone">+</span></span></div>
-                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Staging Package</div>
-                <ul class="space-y-3 mb-9 text-sm text-stone">
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Luxury property staging</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Designer furniture</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Premium art curation</li>
-                    <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>White-glove service</li>
-                </ul>
-                <a href="#contact" class="btn-outline-dark px-6 py-3 text-[11px] tracking-[.16em] uppercase font-body block text-center cursor-pointer">Get Started</a>
             </div>
 
             <!-- Virtual -->
             <div class="pricing-card border border-gray-100 p-8 reveal d2">
                 <div class="label mb-3">Virtual</div>
-                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$199<span class="text-2xl font-light text-stone">+</span></span></div>
+                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$299<span class="text-2xl font-light text-stone">+</span></span></div>
                 <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">Digital Staging</div>
                 <ul class="space-y-3 mb-9 text-sm text-stone">
                     <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Photorealistic renders</li>
@@ -842,8 +819,9 @@
             <!-- Interior Design -->
             <div class="pricing-card border border-gray-100 p-8 reveal d3">
                 <div class="label mb-3">Interior Design</div>
-                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$1,499<span class="text-2xl font-light text-stone">+</span></span></div>
-                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">No Demolition</div>
+                <div class="text-stone text-[11px] tracking-[.14em] uppercase mb-1">Starting from</div>
+                <div class="font-heading text-4xl font-semibold mb-1 price-wrap"><span class="price-num">$2,999<span class="text-2xl font-light text-stone">+</span></span></div>
+                <div class="text-stone text-xs mb-7 pb-7 border-b border-gray-100">No Demolition · Depending on scope of work</div>
                 <ul class="space-y-3 mb-9 text-sm text-stone">
                     <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Accent furniture selection</li>
                     <li class="flex items-center gap-3"><span class="w-1 h-1 bg-ink rounded-full flex-shrink-0" aria-hidden="true"></span>Paint &amp; wallpaper</li>
@@ -1668,7 +1646,7 @@ const blogPosts = [
 </ul>
 
 <h3>Our Process</h3>
-<p>Send us your room photos. We select furniture and décor to match your target buyer profile, render the scene in high resolution, and deliver final images ready to upload to MLS — all within 48 hours. Starting from just $199 per room.</p>
+<p>Send us your room photos. We select furniture and décor to match your target buyer profile, render the scene in high resolution, and deliver final images ready to upload to MLS — all within 48 hours. Starting from just $299 per room.</p>
 
 <p><strong>Book your virtual staging session today</strong> and watch your listing engagement soar.</p>`
     },
@@ -1707,7 +1685,7 @@ const blogPosts = [
 <p>We work directly with your sellers — you make the introduction and we handle the rest. From the initial walk-through and mood board consultation to furniture placement and final styling on photo day, our team manages the entire process. You show up to photography with a property that's ready to impress.</p>
 
 <h3>Virtual Staging for Every Listing Budget</h3>
-<p>Not every seller has the budget for full physical staging. Our virtual staging service — starting at $199 — gives every listing professional-quality MLS photos, regardless of whether the property is furnished or vacant. This levels the playing field and makes every listing look premium.</p>
+<p>Not every seller has the budget for full physical staging. Our virtual staging service — starting at $299 — gives every listing professional-quality MLS photos, regardless of whether the property is furnished or vacant. This levels the playing field and makes every listing look premium.</p>
 
 <h3>Preferred Realtor Programme</h3>
 <p>We offer preferred pricing and priority scheduling for realtors who work with us regularly. As a staging partner, you also get a dedicated point of contact, flexible booking windows, and a team that understands the pace of real estate transactions.</p>
