@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nhstaging.ca/sitemap.xml
+Sitemap: https://nhhomestaging.ca/sitemap.xml
