@@ -5,6 +5,8 @@ on:
     branches:
       - main  # or your branch name
 
+  workflow_dispatch:
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
