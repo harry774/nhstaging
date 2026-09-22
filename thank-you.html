@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You — Payment Received | NH Staging &amp; Renovations</title>
+    <meta name="description" content="Thank you — your deposit payment to NH Staging & Renovations was received successfully.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <link rel="icon" href="/images/logos/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/images/logos/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logos/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity .6s ease;
+        }
+        body.loaded { opacity: 1; }
+
+        /* Subtle grid backdrop, like the homepage hero */
+        .backdrop {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .glow {
+            position: fixed; z-index: 0; pointer-events: none;
+            width: 520px; height: 520px; left: 50%; top: 18%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(closest-side, rgba(212,175,55,.10), transparent);
+        }
+
+        header {
+            position: relative; z-index: 1;
+            padding: 22px 24px;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        header a { display: inline-block; }
+
+        main {
+            position: relative; z-index: 1;
+            flex: 1;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+            padding: 72px 24px 64px;
+            max-width: 680px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Animated gold check */
+        .check-wrap { margin-bottom: 30px; }
+        .check-ring {
+            stroke-dasharray: 302; stroke-dashoffset: 302;
+            animation: draw 1s cubic-bezier(.22,1,.36,1) .15s forwards;
+        }
+        .check-mark {
+            stroke-dasharray: 60; stroke-dashoffset: 60;
+            animation: draw .45s cubic-bezier(.22,1,.36,1) .9s forwards;
+        }
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+
+        .label {
+            font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+            color: #D4AF37; margin-bottom: 18px;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            line-height: 1.08;
+            letter-spacing: -0.01em;
+            margin-bottom: 22px;
+        }
+        .divider {
+            width: 36px; height: 1px; background: #D4AF37;
+            margin-bottom: 26px; opacity: .8;
+        }
+        .lede {
+            color: rgba(255,255,255,.62);
+            font-size: 1.02rem; font-weight: 300; line-height: 1.75;
+            max-width: 520px; margin-bottom: 14px;
+        }
+        .lede strong { color: #fff; font-weight: 500; }
+        .ref {
+            font-size: .78rem; color: rgba(255,255,255,.38);
+            letter-spacing: .04em; margin-bottom: 46px;
+            word-break: break-all;
+        }
+        .ref span { color: rgba(255,255,255,.6); }
+
+        /* What happens next */
+        .steps {
+            width: 100%; text-align: left;
+            border-top: 1px solid rgba(255,255,255,.09);
+            margin-bottom: 48px;
+        }
+        .steps h2 {
+            font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+            color: rgba(255,255,255,.5); font-weight: 500;
+            padding: 26px 0 6px;
+        }
+        .step {
+            display: flex; gap: 18px; align-items: flex-start;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        .step-num {
+            font-family: 'Cinzel', serif; color: #D4AF37;
+            font-size: 1rem; font-weight: 600;
+            border: 1px solid rgba(212,175,55,.4);
+            width: 38px; height: 38px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .step p { color: rgba(255,255,255,.62); font-size: .92rem; line-height: 1.7; font-weight: 300; }
+        .step p strong { color: #fff; font-weight: 500; }
+
+        /* Buttons */
+        .actions { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 340px; }
+        @media (min-width: 480px) { .actions { flex-direction: row; justify-content: center; max-width: none; } }
+        .btn {
+            display: inline-block; text-decoration: none; cursor: pointer;
+            padding: 15px 34px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+            transition: background .2s, color .2s, transform .2s;
+            text-align: center;
+        }
+        .btn-solid { background: #fff; color: #0A0A0A; }
+        .btn-solid:hover { background: #D4AF37; color: #0A0A0A; transform: translateY(-1px); }
+        .btn-outline { border: 1px solid rgba(255,255,255,.35); color: #fff; }
+        .btn-outline:hover { background: #fff; color: #0A0A0A; }
+
+        footer {
+            position: relative; z-index: 1;
+            border-top: 1px solid rgba(255,255,255,.07);
+            padding: 26px 24px;
+            text-align: center;
+        }
+        footer p { color: rgba(255,255,255,.38); font-size: .75rem; letter-spacing: .06em; line-height: 2; }
+        footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+        footer a:hover { color: #D4AF37; }
+
+        @media (prefers-reduced-motion: reduce) {
+            body { opacity: 1; transition: none; }
+            .check-ring, .check-mark { animation: none; stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+
+<header>
+    <a href="/" aria-label="NH Home Staging &amp; Renovations — home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 58" height="46" role="img" aria-label="NH Home Staging &amp; Renovations logo">
+            <rect x="0.75" y="0.75" width="226.5" height="56.5" fill="none" stroke="white" stroke-width="1"/>
+            <rect x="4" y="4" width="220" height="50" fill="none" stroke="white" stroke-width="0.45" opacity="0.5"/>
+            <line x1="61" y1="4" x2="61" y2="54" stroke="white" stroke-width="0.6" opacity="0.5"/>
+            <text x="30.5" y="37" font-family="Cinzel, serif" font-size="19" font-weight="500" fill="white" text-anchor="middle" letter-spacing="1.5">NH</text>
+            <text x="144" y="24.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="3.8">HOME STAGING &amp;</text>
+            <text x="144" y="39.5" font-family="Cinzel, serif" font-size="7.8" font-weight="400" fill="white" text-anchor="middle" letter-spacing="5">RENOVATIONS</text>
+        </svg>
+    </a>
+</header>
+
+<main>
+    <div class="check-wrap" aria-hidden="true">
+        <svg width="92" height="92" viewBox="0 0 100 100" fill="none">
+            <circle class="check-ring" cx="50" cy="50" r="48" stroke="#D4AF37" stroke-width="1.5"/>
+            <path class="check-mark" d="M32 51.5 L45 64 L69 38" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <p class="label">Payment Successful</p>
+    <h1>Thank You!</h1>
+    <div class="divider" aria-hidden="true"></div>
+
+    <p class="lede">
+        Your <strong>50% deposit</strong> has been received. A receipt was sent to your email by Stripe.
+        Our team will be in touch within 24 hours to confirm your staging schedule.
+    </p>
+    <p class="ref" id="ref-row">Payment reference: <span id="ref-id"></span></p>
+
+    <div class="steps">
+        <h2>What happens next</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p><strong>We confirm your booking.</strong> You'll receive a call or email within 24 hours with your staging date and preparation checklist.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p><strong>We stage your property.</strong> Our team transforms the space on the scheduled date — you don't need to lift a finger.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p><strong>Remaining 50% is charged on completion.</strong> Per your agreement, the balance is automatically charged to the same card once staging is finished.</p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-solid" href="/">Back to Homepage</a>
+        <a class="btn btn-outline" href="/#contact">Contact Us</a>
+    </div>
+</main>
+
+<footer>
+    <p>
+        &copy; 2026 NH Home Staging &amp; Renovations · Toronto, Ontario, Canada<br>
+        <a href="tel:+14379826367">+1 (437) 982-6367</a> &nbsp;·&nbsp; <a href="mailto:info@nhhomestaging.ca">info@nhhomestaging.ca</a>
+    </p>
+</footer>
+
+<script>
+(function () {
+    document.body.classList.add('loaded');
+    // Stripe appends ?session_id={CHECKOUT_SESSION_ID} — show it as a payment reference.
+    var sid = new URLSearchParams(window.location.search).get('session_id');
+    var row = document.getElementById('ref-row');
+    if (sid) {
+        document.getElementById('ref-id').textContent = sid;
+    } else if (row) {
+        row.style.display = 'none';
+    }
+})();
+</script>
+
+</body>
+</html>
