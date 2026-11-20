@@ -48,10 +48,13 @@
     {
       "@context": "https://schema.org",
       "@type": "HomeAndConstructionBusiness",
+      "@id": "https://nhhomestaging.ca/#business",
       "name": "NH Staging & Renovations",
       "image": "https://nhhomestaging.ca/images/portfolio/home-staging/living-room-2.webp",
       "url": "https://nhhomestaging.ca/",
+      "telephone": "+1-437-982-6367",
       "email": "info@nhhomestaging.ca",
+      "sameAs": ["https://www.instagram.com/nhhomestaging"],
       "description": "Home staging, virtual staging and interior design in Toronto, Brampton and across the GTA. Book a free consultation with NH Staging & Renovations.",
       "slogan": "Trusted, reliable & affordable home staging in Toronto & the GTA",
       "priceRange": "$$",
@@ -81,9 +84,21 @@
         "@type": "OfferCatalog",
         "name": "Home Staging Services",
         "itemListElement": [
-          { "@type": "Offer", "price": "999", "priceCurrency": "CAD", "itemOffered": { "@type": "Service", "name": "Partial Home Staging in Toronto", "description": "Living room & kitchen, washrooms, master bedroom, décor & furniture." } },
-          { "@type": "Offer", "price": "1999", "priceCurrency": "CAD", "itemOffered": { "@type": "Service", "name": "Full Home Staging in Toronto & GTA", "description": "Everything in partial staging plus all bedrooms and foyer area." } },
-          { "@type": "Offer", "price": "299", "priceCurrency": "CAD", "itemOffered": { "@type": "Service", "name": "Virtual Staging", "description": "Photorealistic MLS-ready virtual staging with 48h turnaround." } },
+          {
+            "@type": "Offer",
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": 999, "priceCurrency": "CAD" },
+            "itemOffered": { "@type": "Service", "name": "Partial Home Staging", "description": "Staging for the living room, kitchen, washrooms and primary bedroom, with furniture and décor." }
+          },
+          {
+            "@type": "Offer",
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": 1999, "priceCurrency": "CAD" },
+            "itemOffered": { "@type": "Service", "name": "Full Home Staging", "description": "Everything in partial staging plus all bedrooms and the foyer." }
+          },
+          {
+            "@type": "Offer",
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": 299, "priceCurrency": "CAD" },
+            "itemOffered": { "@type": "Service", "name": "Virtual Staging", "description": "Photorealistic virtual staging for MLS listing photos with a 48-hour turnaround." }
+          },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Design (No Demolition)" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Staging for Realtors in Toronto" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Staging" } },
@@ -93,7 +108,7 @@
     }
     </script>
 
-    <!-- Structured data: FAQ for long-tail staging searches -->
+    <!-- Structured data: visible staging FAQs -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -102,27 +117,27 @@
         {
           "@type": "Question",
           "name": "How much does home staging cost in Toronto?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Most Toronto staging companies charge $2,000–$10,000. NH Staging & Renovations offers flat-rate packages at an affordable price: Partial Staging from $999 (living room & kitchen, washrooms, master bedroom, décor & furniture) and Full Staging from $1,999 (all bedrooms and foyer included). Virtual staging starts at $299." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Partial home staging starts at $999 CAD for the living room, kitchen, washrooms and primary bedroom, with furniture and décor. Full home staging starts at $1,999 CAD and adds all bedrooms and the foyer. Virtual staging starts at $299 CAD." }
         },
         {
           "@type": "Question",
-          "name": "Do you offer affordable home staging across the GTA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide some of the best staging rates in the Greater Toronto Area, serving Toronto, North York, Scarborough, Etobicoke, Mississauga, Brampton, Vaughan, Richmond Hill and Markham — with a free first consultation on every package." }
+          "name": "Where do you offer home staging?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We serve Toronto and the Greater Toronto Area, including Brampton, Vaughan, Mississauga, Richmond Hill, Markham and Oakville. In Toronto, we serve areas such as North York, Scarborough, Etobicoke and East York." }
         },
         {
           "@type": "Question",
           "name": "Do you provide home décor for resale houses?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We style resale houses with accent furniture, wall art, rugs, lighting and accessories so listings photograph beautifully and appeal to buyers — staged homes typically sell faster and for more." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We use accent furniture, wall art, rugs, lighting and accessories to prepare resale homes for listing photos and showings." }
         },
         {
           "@type": "Question",
           "name": "What is virtual staging and how much does it cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Virtual staging digitally furnishes photos of your empty rooms with photorealistic furniture and décor. We deliver MLS-ready images within 48 hours, starting at $299." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Virtual staging adds photorealistic furniture and décor to photos of empty rooms. MLS-ready images start at $299 CAD with a 48-hour turnaround." }
         },
         {
           "@type": "Question",
-          "name": "Why choose NH Staging as your home staging company in Toronto?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Transparent flat-rate pricing, reliable quick 48-hour turnaround, 100+ quality projects completed, 5-star client rating and limited-time package rates make NH Staging one of the most trusted and affordable home staging companies in Toronto, Brampton and the GTA." }
+          "name": "What should I include in a staging quote request?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tell us the property type, number of bedrooms and washrooms, and which service you are interested in. If you have a target date for listing photos, include it in the additional details." }
         }
       ]
     }
@@ -338,7 +353,7 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        .staging-project { background: #fff; border: 1px solid #e9e5de; }
+        .staging-project { background: #fff; border: 1px solid #e9e5de; scroll-margin-top: 7rem; }
         .staging-project-cover { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
         .staging-project-copy { display: grid; gap: .65rem; padding: 1rem; }
         .staging-project-photos summary {
@@ -523,7 +538,7 @@
         <div class="max-w-7xl mx-auto px-4 md:px-8 py-6 grid grid-cols-2 gap-4 md:gap-8">
             <div class="text-center reveal">
                 <div class="font-heading text-white text-2xl md:text-3xl">48h</div>
-                <div class="label label-light mt-1.5 hidden sm:block">Fast Turnaround</div>
+                <div class="label label-light mt-1.5">Virtual Staging</div>
             </div>
             <div class="text-center reveal d1">
                 <div class="font-heading text-white text-2xl md:text-3xl">5★</div>
@@ -569,7 +584,7 @@
                 <h2 class="font-heading text-4xl md:text-5xl font-semibold leading-tight mb-8">Why is Staging<br>Important?</h2>
                 <div class="divider mb-8 text-ink"></div>
                 <p class="text-stone text-base leading-relaxed mb-8">
-                    Home staging helps showcase your property's best features, creating a strong first impression that attracts more buyers. A well-staged home can sell faster and often for a higher price by helping buyers envision themselves living in the space. As a trusted staging team serving Toronto, Brampton and the GTA, we make quality staging quick, reliable and affordable.
+                    Home staging helps buyers see how rooms can be used. For listing photos and showings, we arrange furniture, lighting and décor to show the layout and highlight features such as fireplaces and windows.
                 </p>
                 <a href="#services" class="btn-outline-dark px-7 py-3 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Explore Services</a>
             </div>
@@ -620,7 +635,7 @@
                 <h2 class="font-heading text-4xl md:text-5xl font-semibold leading-tight mb-8">What is Virtual Staging?</h2>
                 <div class="divider mb-8 text-ink"></div>
                 <p class="text-stone text-base leading-relaxed mb-4">
-                    Virtual staging uses digital technology to add realistic furniture, décor, and design elements to photos of empty or outdated spaces. It helps buyers visualize a home's potential and increases online engagement — often leading to more showings and a faster sale.
+                    Virtual staging adds realistic digital furniture and décor to room photos. A dining table or sofa can show the scale of an empty room and help buyers picture how the space could be used.
                 </p>
                 <p class="text-stone text-base leading-relaxed">
                     You can show these virtual staging photos directly on the <strong class="text-ink font-medium">MLS listing</strong> for your property sale.
@@ -694,7 +709,7 @@
                 <div class="w-5 h-px bg-gray-200 mb-6"></div>
                 <div class="label mb-3">01</div>
                 <h3 class="font-heading text-2xl font-semibold mb-4">Home Staging</h3>
-                <p class="text-stone text-sm leading-relaxed mb-7">Suitable for home sellers &amp; realtors. Reliable, quality staging that transforms spaces to highlight their best features, attract more buyers, and achieve a higher sale price.</p>
+                <p class="text-stone text-sm leading-relaxed mb-7">We arrange furniture and décor for listing photos and showings, with partial and full staging options for sellers and real estate agents.</p>
                 <div class="flex flex-wrap gap-2">
                     <span class="border border-gray-100 text-stone text-xs px-3 py-1">Home Sellers</span>
                     <span class="border border-gray-100 text-stone text-xs px-3 py-1">Realtors</span>
@@ -710,7 +725,7 @@
                 <div class="w-5 h-px bg-white/15 mb-6"></div>
                 <div class="label label-light mb-3">02</div>
                 <h3 class="font-heading text-2xl font-semibold text-white mb-4">Virtual Staging</h3>
-                <p class="text-white/50 text-sm leading-relaxed mb-7">Suitable for home sellers &amp; realtors. Photorealistic digital furniture and décor placement for compelling MLS listing photos that drive more online views — quick 48-hour turnaround.</p>
+                <p class="text-white/50 text-sm leading-relaxed mb-7">We add digital furniture and décor to room photos and deliver MLS-ready images within 48 hours.</p>
                 <div class="flex flex-wrap gap-2">
                     <span class="border border-white/10 text-white/60 text-xs px-3 py-1">MLS Ready</span>
                     <span class="border border-white/10 text-white/60 text-xs px-3 py-1">48h Delivery</span>
@@ -735,7 +750,12 @@
         </div>
 
         <div class="text-center reveal">
+            <p class="text-stone text-base leading-relaxed max-w-lg mx-auto mb-6">NH Staging &amp; Renovations offers partial and full home staging, virtual staging and interior design in Toronto, Brampton, Vaughan, Richmond Hill and across the GTA.</p>
             <a href="#contact" class="btn-dark px-10 py-4 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Get a Free Quote</a>
+            <div class="flex flex-wrap justify-center gap-4 mt-5 text-sm">
+                <a href="#recent-staging-projects" class="underline">See recent staging projects</a>
+                <a href="blog/home-staging-for-toronto-realtors.html" class="underline">Read the pre-listing staging guide</a>
+            </div>
         </div>
 
     </div>
@@ -763,7 +783,8 @@
                     <div class="staging-project-copy">
                         <p class="label">Marchbank Crescent · Central Park</p>
                         <h4 class="font-heading text-xl font-semibold">Home staging in Brampton</h4>
-                        <p class="text-stone text-sm">Warm neutrals and layered textures connect the living room, dining area and bedroom in this Central Park home.</p>
+                        <p class="text-stone text-sm">We staged the living room, dining area and bedroom of this semi-detached bungalow in Brampton’s Central Park neighbourhood.</p>
+                        <p class="text-stone text-sm">A patterned rug and round coffee table define the seating area. The set dining table shows how the adjoining space fits into the layout in listing photos.</p>
                         <details class="staging-project-photos">
                             <summary>View 5 photos</summary>
                             <div class="staging-project-thumbnails">
@@ -782,7 +803,8 @@
                     <div class="staging-project-copy">
                         <p class="label">Hopewell Street · Kleinburg</p>
                         <h4 class="font-heading text-xl font-semibold">Home staging in Vaughan</h4>
-                        <p class="text-stone text-sm">Furniture and lighting define the living and dining areas, and soft bedding and artwork carry the palette into the bedrooms.</p>
+                        <p class="text-stone text-sm">We staged the living room, dining area and bedrooms of this semi-detached home in Kleinburg, Vaughan.</p>
+                        <p class="text-stone text-sm">Seating draws attention to the living room fireplace, and a set dining table by the windows shows where everyday meals fit into the layout.</p>
                         <details class="staging-project-photos">
                             <summary>View 5 photos</summary>
                             <div class="staging-project-thumbnails">
@@ -1146,29 +1168,29 @@
             <p class="label mb-4">Common Questions</p>
             <h2 class="font-heading text-4xl md:text-5xl font-semibold">Home Staging FAQ</h2>
             <div class="flex justify-center mt-5 mb-6"><div class="divider text-ink"></div></div>
-            <p class="text-stone text-sm max-w-lg mx-auto">Answers about home staging costs, coverage across Toronto &amp; the GTA, and how we keep our rates affordable.</p>
+            <p class="text-stone text-sm max-w-lg mx-auto">Starting prices, service areas and what to include when requesting a staging quote.</p>
         </div>
 
         <div class="reveal">
             <details class="faq-item border-b border-gray-200 py-6">
                 <summary class="font-heading text-lg font-semibold">How much does home staging cost in Toronto?</summary>
-                <p class="text-stone text-sm leading-relaxed mt-4">Most Toronto staging companies charge $2,000–$10,000. NH Staging &amp; Renovations offers flat-rate packages at an affordable price: Partial Staging from <strong>$999</strong> (living room &amp; kitchen, washrooms, master bedroom, décor &amp; furniture) and Full Staging from <strong>$1,999</strong> (all bedrooms and foyer included). Virtual staging starts at $299.</p>
+                <p class="text-stone text-sm leading-relaxed mt-4">Partial home staging starts at <strong>$999 CAD</strong> for the living room, kitchen, washrooms and primary bedroom, with furniture and décor. Full home staging starts at <strong>$1,999 CAD</strong> and adds all bedrooms and the foyer. Virtual staging starts at <strong>$299 CAD</strong>.</p>
             </details>
             <details class="faq-item border-b border-gray-200 py-6">
-                <summary class="font-heading text-lg font-semibold">Do you offer affordable home staging across the GTA?</summary>
-                <p class="text-stone text-sm leading-relaxed mt-4">Yes. We provide some of the best staging rates in the Greater Toronto Area, serving Toronto, North York, Scarborough, Etobicoke, Mississauga, Brampton, Vaughan, Richmond Hill and Markham — with a free first consultation on every package.</p>
+                <summary class="font-heading text-lg font-semibold">Where do you offer home staging?</summary>
+                <p class="text-stone text-sm leading-relaxed mt-4">We serve Toronto and the Greater Toronto Area, including Brampton, Vaughan, Mississauga, Richmond Hill, Markham and Oakville. In Toronto, we serve areas such as North York, Scarborough, Etobicoke and East York.</p>
             </details>
             <details class="faq-item border-b border-gray-200 py-6">
                 <summary class="font-heading text-lg font-semibold">Do you provide home décor for resale houses?</summary>
-                <p class="text-stone text-sm leading-relaxed mt-4">Yes. We style resale houses with accent furniture, wall art, rugs, lighting and accessories so listings photograph beautifully and appeal to buyers — staged homes typically sell faster and for more.</p>
+                <p class="text-stone text-sm leading-relaxed mt-4">Yes. We use accent furniture, wall art, rugs, lighting and accessories to prepare resale homes for listing photos and showings.</p>
             </details>
             <details class="faq-item border-b border-gray-200 py-6">
                 <summary class="font-heading text-lg font-semibold">What is virtual staging and how much does it cost?</summary>
-                <p class="text-stone text-sm leading-relaxed mt-4">Virtual staging digitally furnishes photos of your empty rooms with photorealistic furniture and décor. We deliver MLS-ready images within 48 hours, starting at <strong>$299</strong>.</p>
+                <p class="text-stone text-sm leading-relaxed mt-4">Virtual staging adds photorealistic furniture and décor to photos of empty rooms. MLS-ready images start at <strong>$299 CAD</strong> with a 48-hour turnaround.</p>
             </details>
             <details class="faq-item border-b border-gray-200 py-6">
-                <summary class="font-heading text-lg font-semibold">Why choose NH Staging as your home staging company in Toronto?</summary>
-                <p class="text-stone text-sm leading-relaxed mt-4">Transparent flat-rate pricing, reliable quick 48-hour turnaround, 100+ quality projects completed, a 5-star client rating and limited-time package rates make NH Staging one of the most trusted and affordable home staging companies in Toronto, Brampton and the GTA.</p>
+                <summary class="font-heading text-lg font-semibold">What should I include in a staging quote request?</summary>
+                <p class="text-stone text-sm leading-relaxed mt-4">Tell us the property type, number of bedrooms and washrooms, and which service you are interested in. If you have a target date for listing photos, include it in the additional details.</p>
             </details>
         </div>
 
