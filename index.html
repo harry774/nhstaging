@@ -330,6 +330,37 @@
 
         #portfolio-grid .portfolio-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+        .staging-projects { margin-bottom: 3.5rem; scroll-margin-top: 7rem; }
+        .staging-project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .staging-project { background: #fff; border: 1px solid #e9e5de; }
+        .staging-project-cover { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+        .staging-project-copy { display: grid; gap: .65rem; padding: 1rem; }
+        .staging-project-photos summary {
+            cursor: pointer;
+            font-weight: 600;
+            padding: .3rem 0;
+        }
+        .staging-project-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: .4rem;
+            padding-top: .5rem;
+        }
+        .staging-project-thumbnails img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .staging-project-photos :focus-visible { outline: 2px solid #0a0a0a; outline-offset: 3px; }
+        @media (max-width: 1023px) {
+            .staging-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 559px) {
+            .staging-project-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+
         /* ── Moodboard tiles ── */
         .mood-tile { overflow: hidden; cursor: pointer; position: relative; }
         .mood-tile img { display: block; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.55s ease; }
@@ -723,6 +754,88 @@
             <div class="flex justify-center mt-5 mb-6"><div class="divider text-ink"></div></div>
             <p class="text-stone text-sm max-w-lg mx-auto">Real transformations across the Greater Toronto Area. Click any photo to explore.</p>
         </div>
+
+        <section id="recent-staging-projects" class="staging-projects" aria-labelledby="staging-projects-title">
+            <h3 id="staging-projects-title" class="font-heading text-2xl font-semibold mb-6">Recent Staging Projects</h3>
+            <div class="staging-project-grid">
+                <article class="staging-project" id="brampton-marchbank-crescent">
+                    <img class="staging-project-cover" src="images/portfolio/projects/brampton-marchbank-crescent/living-room.webp" alt="Staged living room with layered textiles and decorative wall panels in Brampton" width="1267" height="792" loading="lazy" decoding="async">
+                    <div class="staging-project-copy">
+                        <p class="label">Marchbank Crescent · Central Park</p>
+                        <h4 class="font-heading text-xl font-semibold">Home staging in Brampton</h4>
+                        <p class="text-stone text-sm">Warm neutrals and layered textures connect the living room, dining area and bedroom in this Central Park home.</p>
+                        <details class="staging-project-photos">
+                            <summary>View 5 photos</summary>
+                            <div class="staging-project-thumbnails">
+                                <a href="images/portfolio/projects/brampton-marchbank-crescent/living-room.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/living-room.webp" alt="Staged living room with layered textiles and decorative wall panels in Brampton" width="1267" height="792" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/brampton-marchbank-crescent/dining-room.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/dining-room.webp" alt="Table setting and framed wall panels in the Brampton dining area" width="1270" height="791" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/brampton-marchbank-crescent/bedroom.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/bedroom.webp" alt="Staged bedroom with layered bedding and artwork in the Brampton home" width="1272" height="792" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/brampton-marchbank-crescent/living-and-dining.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/living-and-dining.webp" alt="Wide view of the staged living and dining areas in the Brampton home" width="1269" height="776" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/brampton-marchbank-crescent/living-room-detail.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/living-room-detail.webp" alt="Staged sofa, round coffee table and patterned rug in the Brampton living room" width="1086" height="1448" loading="lazy" decoding="async"></a>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+
+                <article class="staging-project" id="vaughan-hopewell-street">
+                    <img class="staging-project-cover" src="images/portfolio/projects/vaughan-hopewell-street/living-room.webp" alt="Staged seating around the fireplace in the Kleinburg living room" width="1275" height="784" loading="lazy" decoding="async">
+                    <div class="staging-project-copy">
+                        <p class="label">Hopewell Street · Kleinburg</p>
+                        <h4 class="font-heading text-xl font-semibold">Home staging in Vaughan</h4>
+                        <p class="text-stone text-sm">Furniture and lighting define the living and dining areas, and soft bedding and artwork carry the palette into the bedrooms.</p>
+                        <details class="staging-project-photos">
+                            <summary>View 5 photos</summary>
+                            <div class="staging-project-thumbnails">
+                                <a href="images/portfolio/projects/vaughan-hopewell-street/living-room.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/living-room.webp" alt="Staged seating around the fireplace in the Kleinburg living room" width="1275" height="784" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/vaughan-hopewell-street/kitchen-and-dining.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/kitchen-and-dining.webp" alt="Staged kitchen island and dining nook in the Kleinburg home" width="1276" height="785" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/vaughan-hopewell-street/dining-room.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/dining-room.webp" alt="Set dining table and greenery beside the windows in the Kleinburg home" width="1278" height="784" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/vaughan-hopewell-street/bedroom-with-sitting-area.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/bedroom-with-sitting-area.webp" alt="Staged bedroom with a sitting area and patterned rug in Kleinburg" width="1276" height="785" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/vaughan-hopewell-street/bedroom.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/bedroom.webp" alt="Staged bedroom with a floor lamp and round mirror in Kleinburg" width="1277" height="780" loading="lazy" decoding="async"></a>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+
+                <article class="staging-project" id="east-york-brentcliffe-road">
+                    <img class="staging-project-cover" src="images/portfolio/projects/east-york-brentcliffe-road/living-room.webp" alt="Staged East York living room with ivory seating and a pale rug" width="1086" height="1448" loading="lazy" decoding="async">
+                    <div class="staging-project-copy">
+                        <p class="label">Brentcliffe Road · Toronto</p>
+                        <h4 class="font-heading text-xl font-semibold">Home staging in East York</h4>
+                        <p class="text-stone text-sm">Ivory seating brightens the living area, while sage and charcoal accents give the bedrooms distinct looks.</p>
+                        <details class="staging-project-photos">
+                            <summary>View 4 photos</summary>
+                            <div class="staging-project-thumbnails">
+                                <a href="images/portfolio/projects/east-york-brentcliffe-road/living-room.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/living-room.webp" alt="Staged East York living room with ivory seating and a pale rug" width="1086" height="1448" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/east-york-brentcliffe-road/sage-bedroom.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/sage-bedroom.webp" alt="Staged bedroom with a sage wall and layered bedding in East York" width="1085" height="1446" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/east-york-brentcliffe-road/charcoal-bedroom.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/charcoal-bedroom.webp" alt="Staged bedroom with a charcoal feature wall and round mirror in East York" width="1086" height="1448" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/east-york-brentcliffe-road/green-bedroom.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/green-bedroom.webp" alt="Staged East York bedroom with a muted green wall and textured bedding" width="720" height="960" loading="lazy" decoding="async"></a>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+
+                <article class="staging-project" id="richmond-hill-leslie-street">
+                    <img class="staging-project-cover" src="images/portfolio/projects/richmond-hill-leslie-street/living-room.webp" alt="Staged Richmond Hill condo living area with ivory seating and colourful accents" width="1500" height="841" loading="lazy" decoding="async">
+                    <div class="staging-project-copy">
+                        <p class="label">Leslie Street · Richmond Hill</p>
+                        <h4 class="font-heading text-xl font-semibold">Condo staging in Richmond Hill</h4>
+                        <p class="text-stone text-sm">A compact dining setup and separate seating areas show how the open condo layout can work for everyday living.</p>
+                        <details class="staging-project-photos">
+                            <summary>View 6 photos</summary>
+                            <div class="staging-project-thumbnails">
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/living-room.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/living-room.webp" alt="Staged Richmond Hill condo living area with ivory seating and colourful accents" width="1500" height="841" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/dining-area.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/dining-area.webp" alt="Staged dining table and upholstered chairs beside the condo kitchen" width="1500" height="842" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/window-seating.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/window-seating.webp" alt="Seating and an accent chair next to the Richmond Hill condo windows" width="1500" height="840" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/bedroom-with-window.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/bedroom-with-window.webp" alt="Staged Richmond Hill bedroom with layered bedding and a wide window" width="1500" height="842" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/bedroom-with-dresser.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/bedroom-with-dresser.webp" alt="Staged Richmond Hill bedroom with neutral bedding, artwork and a dresser" width="1500" height="843" loading="lazy" decoding="async"></a>
+                                <a href="images/portfolio/projects/richmond-hill-leslie-street/bright-bedroom.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/bright-bedroom.webp" alt="Bright staged bedroom with a white bed and bedside lamps in Richmond Hill" width="1500" height="841" loading="lazy" decoding="async"></a>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+            </div>
+            <a href="#contact" class="btn-outline-dark px-7 py-3 text-[11px] tracking-[.18em] uppercase font-body inline-block cursor-pointer">Get a Staging Quote</a>
+        </section>
 
         <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             <!-- Populated by JavaScript -->
@@ -1809,37 +1922,44 @@ setInterval(function() {
 /* ──────────────────────────────────────────
    Portfolio lightbox
 ────────────────────────────────────────── */
-var lbImages = portfolioImages; // active image set — portfolio or moodboards
+var lbImages = portfolioImages;
+var lbAltTexts = [];
+var lbTrigger = null;
 
-function openPortfolioLightbox(idx) {
-    lbImages = portfolioImages;
+function openPhotoLightbox(images, idx, altTexts = [], trigger = null) {
+    lbImages = images;
+    lbAltTexts = altTexts;
+    lbTrigger = trigger;
     portfolioLightboxIdx = idx;
     updatePortfolioLightbox();
     document.getElementById('portfolio-lightbox').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    if (trigger) document.getElementById('lb-close-btn').focus();
 }
 
+function openPortfolioLightbox(idx) {
+    openPhotoLightbox(portfolioImages, idx);
+}
 
 function openMoodboardLightbox(idx) {
-    lbImages = moodboardImages;
-    portfolioLightboxIdx = idx;
-    updatePortfolioLightbox();
-    document.getElementById('portfolio-lightbox').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    openPhotoLightbox(moodboardImages, idx);
 }
 
 function closePortfolioLightbox() {
     document.getElementById('portfolio-lightbox').classList.add('hidden');
     document.body.style.overflow = '';
+    if (lbTrigger) lbTrigger.focus({ preventScroll: true });
+    lbTrigger = null;
 }
 
 function updatePortfolioLightbox() {
     var img = document.getElementById('lb-img');
+    var src = lbImages[portfolioLightboxIdx];
     img.classList.add('lb-loading');
-    img.src = lbImages[portfolioLightboxIdx];
-    img.alt = portfolioAltText(lbImages[portfolioLightboxIdx]);
+    img.alt = lbAltTexts[portfolioLightboxIdx] || portfolioAltText(src);
     img.onload = function() { img.classList.remove('lb-loading'); };
     img.onerror = function() { img.classList.remove('lb-loading'); };
+    img.src = src;
     document.getElementById('lb-counter').textContent = (portfolioLightboxIdx + 1) + ' / ' + lbImages.length;
 }
 
@@ -2058,6 +2178,20 @@ function lbNext() {
 document.addEventListener('DOMContentLoaded', function() {
     /* Portfolio init */
     portfolioInit();
+
+    document.getElementById('recent-staging-projects').addEventListener('click', function(e) {
+        var link = e.target.closest('.staging-project-thumbnails a');
+        if (!link || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+        var photos = Array.from(link.parentElement.querySelectorAll('a'));
+        e.preventDefault();
+        openPhotoLightbox(
+            photos.map(function(photo) { return photo.getAttribute('href'); }),
+            photos.indexOf(link),
+            photos.map(function(photo) { return photo.querySelector('img').alt; }),
+            link
+        );
+    });
 
     /* Moodboard tiles — tap/click opens the full image in the lightbox.
        This is the primary path on touch devices, where hover-expand doesn't exist. */
