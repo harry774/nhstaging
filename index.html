@@ -349,17 +349,49 @@
         .staging-project-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            align-items: start;
+            grid-auto-rows: 1fr;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        .staging-project { background: #fff; border: 1px solid #e9e5de; scroll-margin-top: 7rem; }
-        .staging-project-cover { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-        .staging-project-copy { display: grid; gap: .65rem; padding: 1rem; }
+        .staging-project {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #e9e5de;
+            scroll-margin-top: 7rem;
+            transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+        }
+        .staging-project-cover { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; flex-shrink: 0; }
+        .staging-project-copy { display: flex; flex: 1; flex-direction: column; gap: .65rem; padding: 1rem; }
+        .staging-project-photos { margin-top: auto; }
         .staging-project-photos summary {
             cursor: pointer;
             font-weight: 600;
             padding: .3rem 0;
+        }
+        /* The summary remains a native disclosure when JavaScript is unavailable. */
+        .staging-project-photos:not([open]) summary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .staging-project-photos:not([open]) summary:focus-visible::after {
+            outline: 2px solid #0a0a0a;
+            outline-offset: 3px;
+        }
+        @media (hover: hover) {
+            .staging-project:hover {
+                border-color: #a48b63;
+                box-shadow: 0 8px 24px rgb(10 10 10 / 12%);
+                transform: translateY(-3px);
+            }
+            .staging-project:hover summary { text-decoration: underline; text-underline-offset: .2em; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .staging-project { transition: none; }
+            .staging-project:hover { transform: none; }
         }
         .staging-project-thumbnails {
             display: grid;
@@ -786,7 +818,7 @@
                         <p class="text-stone text-sm">We staged the living room, dining area and bedroom of this semi-detached bungalow in Brampton’s Central Park neighbourhood.</p>
                         <p class="text-stone text-sm">A patterned rug and round coffee table define the seating area. The set dining table shows how the adjoining space fits into the layout in listing photos.</p>
                         <details class="staging-project-photos">
-                            <summary>View 5 photos</summary>
+                            <summary aria-label="View 5 photos of the Brampton staging project">View 5 photos</summary>
                             <div class="staging-project-thumbnails">
                                 <a href="images/portfolio/projects/brampton-marchbank-crescent/living-room.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/living-room.webp" alt="Staged living room with layered textiles and decorative wall panels in Brampton" width="1267" height="792" loading="lazy" decoding="async"></a>
                                 <a href="images/portfolio/projects/brampton-marchbank-crescent/dining-room.webp"><img src="images/portfolio/projects/brampton-marchbank-crescent/dining-room.webp" alt="Table setting and framed wall panels in the Brampton dining area" width="1270" height="791" loading="lazy" decoding="async"></a>
@@ -806,7 +838,7 @@
                         <p class="text-stone text-sm">We staged the living room, dining area and bedrooms of this semi-detached home in Kleinburg, Vaughan.</p>
                         <p class="text-stone text-sm">Seating draws attention to the living room fireplace, and a set dining table by the windows shows where everyday meals fit into the layout.</p>
                         <details class="staging-project-photos">
-                            <summary>View 5 photos</summary>
+                            <summary aria-label="View 5 photos of the Vaughan staging project">View 5 photos</summary>
                             <div class="staging-project-thumbnails">
                                 <a href="images/portfolio/projects/vaughan-hopewell-street/living-room.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/living-room.webp" alt="Staged seating around the fireplace in the Kleinburg living room" width="1275" height="784" loading="lazy" decoding="async"></a>
                                 <a href="images/portfolio/projects/vaughan-hopewell-street/kitchen-and-dining.webp"><img src="images/portfolio/projects/vaughan-hopewell-street/kitchen-and-dining.webp" alt="Staged kitchen island and dining nook in the Kleinburg home" width="1276" height="785" loading="lazy" decoding="async"></a>
@@ -825,7 +857,7 @@
                         <h4 class="font-heading text-xl font-semibold">Home staging in East York</h4>
                         <p class="text-stone text-sm">Ivory seating brightens the living area, while sage and charcoal accents give the bedrooms distinct looks.</p>
                         <details class="staging-project-photos">
-                            <summary>View 4 photos</summary>
+                            <summary aria-label="View 4 photos of the East York staging project">View 4 photos</summary>
                             <div class="staging-project-thumbnails">
                                 <a href="images/portfolio/projects/east-york-brentcliffe-road/living-room.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/living-room.webp" alt="Staged East York living room with ivory seating and a pale rug" width="1086" height="1448" loading="lazy" decoding="async"></a>
                                 <a href="images/portfolio/projects/east-york-brentcliffe-road/sage-bedroom.webp"><img src="images/portfolio/projects/east-york-brentcliffe-road/sage-bedroom.webp" alt="Staged bedroom with a sage wall and layered bedding in East York" width="1085" height="1446" loading="lazy" decoding="async"></a>
@@ -843,7 +875,7 @@
                         <h4 class="font-heading text-xl font-semibold">Condo staging in Richmond Hill</h4>
                         <p class="text-stone text-sm">A compact dining setup and separate seating areas show how the open condo layout can work for everyday living.</p>
                         <details class="staging-project-photos">
-                            <summary>View 6 photos</summary>
+                            <summary aria-label="View 6 photos of the Richmond Hill staging project">View 6 photos</summary>
                             <div class="staging-project-thumbnails">
                                 <a href="images/portfolio/projects/richmond-hill-leslie-street/living-room.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/living-room.webp" alt="Staged Richmond Hill condo living area with ivory seating and colourful accents" width="1500" height="841" loading="lazy" decoding="async"></a>
                                 <a href="images/portfolio/projects/richmond-hill-leslie-street/dining-area.webp"><img src="images/portfolio/projects/richmond-hill-leslie-street/dining-area.webp" alt="Staged dining table and upholstered chairs beside the condo kitchen" width="1500" height="842" loading="lazy" decoding="async"></a>
@@ -2202,16 +2234,17 @@ document.addEventListener('DOMContentLoaded', function() {
     portfolioInit();
 
     document.getElementById('recent-staging-projects').addEventListener('click', function(e) {
-        var link = e.target.closest('.staging-project-thumbnails a');
-        if (!link || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var trigger = e.target.closest('.staging-project-photos summary, .staging-project-thumbnails a');
+        if (!trigger || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
-        var photos = Array.from(link.parentElement.querySelectorAll('a'));
+        var gallery = trigger.closest('.staging-project-photos');
+        var photos = Array.from(gallery.querySelectorAll('.staging-project-thumbnails a'));
         e.preventDefault();
         openPhotoLightbox(
             photos.map(function(photo) { return photo.getAttribute('href'); }),
-            photos.indexOf(link),
+            trigger.matches('summary') ? 0 : photos.indexOf(trigger),
             photos.map(function(photo) { return photo.querySelector('img').alt; }),
-            link
+            trigger
         );
     });
 
