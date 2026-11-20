@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Josefin+Sans:wght@400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f7f5f2;
+    color: #0a0a0a;
+    font: 1rem/1.7 "Josefin Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.24em;
+}
+
+.site-header {
+    background: #0a0a0a;
+    color: #fff;
+    padding: 1.2rem clamp(1.25rem, 6vw, 5rem);
+}
+
+.site-header a {
+    font-family: "Cinzel", Georgia, serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+main {
+    width: min(100%, 52rem);
+    margin-inline: auto;
+    padding: clamp(1.25rem, 5vw, 4rem);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.75rem;
+}
+
+.article-meta {
+    color: #555;
+    margin: 0 0 0.65rem;
+}
+
+h1, h2 {
+    font-family: "Cinzel", Georgia, serif;
+    line-height: 1.25;
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.65rem, 5vw, 2.7rem);
+}
+
+h2 {
+    margin-top: 1.75rem;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+.article-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.article-body {
+    margin-top: 1.5rem;
+}
+
+.consultation {
+    display: inline-block;
+    margin: 0.75rem 0 1rem;
+    padding: 0.8rem 1.1rem;
+    background: #0a0a0a;
+    color: #fff;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+.consultation:focus-visible {
+    outline-color: #0a0a0a;
+}
